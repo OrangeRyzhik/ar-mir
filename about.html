@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>О проекте - AR Мир</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        .title-font { font-family: 'Space Grotesk', sans-serif; }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <!-- NAV (копируется во все страницы) -->
+    <nav class="bg-white border-b sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <div class="w-11 h-11 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-3xl flex items-center justify-center text-3xl text-white">👾</div>
+                <span class="title-font text-3xl font-bold text-indigo-600">AR Мир</span>
+            </div>
+            <div class="hidden md:flex items-center gap-8 text-lg font-medium">
+                <a href="index.html" class="hover:text-indigo-600 transition">Главная</a>
+                <a href="about.html" class="text-indigo-600">О проекте</a>
+                <a href="technologies.html" class="hover:text-indigo-600 transition">Технологии</a>
+                <a href="lessons.html" class="hover:text-indigo-600 transition">Уроки</a>
+                <a href="examples.html" class="hover:text-indigo-600 transition">Примеры</a>
+            </div>
+            <a href="contacts.html" class="px-6 py-3 bg-indigo-600 text-white rounded-3xl font-medium hover:bg-indigo-700 transition">Связаться</a>
+        </div>
+    </nav>
+
+    <div class="max-w-4xl mx-auto px-6 py-20">
+        <h1 class="title-font text-5xl font-bold mb-10 text-center">О проекте «AR Мир»</h1>
+        <div class="prose prose-lg mx-auto text-gray-700">
+            <p>Проект создан для того, чтобы познакомить учеников 5–6 классов с современными технологиями дополненной реальности в увлекательной и доступной форме.</p>
+            <p>Мы верим, что уже в школе дети должны не только потреблять технологии, но и уметь их создавать.</p>
+            
+            <h2 class="text-3xl font-semibold mt-12 mb-4">Наши цели:</h2>
+            <ul class="list-disc pl-6 space-y-3">
+                <li>Сделать изучение AR интересным и понятным</li>
+                <li>Развить пространственное мышление и креативность</li>
+                <li>Подготовить школьников к технологиям будущего</li>
+                <li>Дать возможность создавать собственные AR-проекты</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

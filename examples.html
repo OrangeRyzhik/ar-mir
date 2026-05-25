@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Примеры работ - AR Мир</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        .title-font { font-family: 'Space Grotesk', sans-serif; }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <!-- NAV -->
+    <nav class="bg-white border-b sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <div class="w-11 h-11 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-3xl flex items-center justify-center text-3xl text-white">👾</div>
+                <span class="title-font text-3xl font-bold text-indigo-600">AR Мир</span>
+            </div>
+            <div class="hidden md:flex items-center gap-8 text-lg font-medium">
+                <a href="index.html" class="hover:text-indigo-600 transition">Главная</a>
+                <a href="about.html" class="hover:text-indigo-600 transition">О проекте</a>
+                <a href="technologies.html" class="hover:text-indigo-600 transition">Технологии</a>
+                <a href="lessons.html" class="hover:text-indigo-600 transition">Уроки</a>
+                <a href="examples.html" class="text-indigo-600">Примеры</a>
+            </div>
+            <a href="contacts.html" class="px-6 py-3 bg-indigo-600 text-white rounded-3xl font-medium hover:bg-indigo-700 transition">Связаться</a>
+        </div>
+    </nav>
+
+    <div class="max-w-6xl mx-auto px-6 py-20">
+        <h1 class="title-font text-5xl font-bold text-center mb-16">Примеры ученических работ</h1>
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="bg-white rounded-3xl overflow-hidden">
+                <img src="https://picsum.photos/id/201/600/400" class="w-full">
+                <div class="p-5">Виртуальный музей динозавров</div>
+            </div>
+            <div class="bg-white rounded-3xl overflow-hidden">
+                <img src="https://picsum.photos/id/237/600/400" class="w-full">
+                <div class="p-5">AR-учебник по биологии</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

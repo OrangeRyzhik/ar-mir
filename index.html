@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AR Мир • Дополненная Реальность для 5-6 классов</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        .title-font { font-family: 'Space Grotesk', sans-serif; }
+        .hero-bg { background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%); }
+        .card-hover:hover { transform: translateY(-12px); box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.15); }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <!-- NAV -->
+    <nav class="bg-white border-b sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <div class="w-11 h-11 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-3xl flex items-center justify-center text-3xl text-white">👾</div>
+                <span class="title-font text-3xl font-bold text-indigo-600">AR Мир</span>
+            </div>
+            
+            <div class="hidden md:flex items-center gap-8 text-lg font-medium">
+                <a href="index.html" class="text-indigo-600">Главная</a>
+                <a href="about.html" class="hover:text-indigo-600 transition">О проекте</a>
+                <a href="technologies.html" class="hover:text-indigo-600 transition">Технологии</a>
+                <a href="lessons.html" class="hover:text-indigo-600 transition">Уроки</a>
+                <a href="examples.html" class="hover:text-indigo-600 transition">Примеры</a>
+            </div>
+
+            <a href="contacts.html" class="px-6 py-3 bg-indigo-600 text-white rounded-3xl font-medium hover:bg-indigo-700 transition">Связаться</a>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero-bg text-white py-28">
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+            <div>
+                <h1 class="title-font text-6xl md:text-7xl font-bold leading-tight mb-6">
+                    Дополненная реальность<br>в твоём классе
+                </h1>
+                <p class="text-xl text-white/90 mb-10">
+                    Увлекательный образовательный портал для учеников 5–6 классов. Изучай AR и создавай свои проекты!
+                </p>
+                <div class="flex gap-4">
+                    <a href="lessons.html" class="px-8 py-4 bg-white text-indigo-700 rounded-3xl font-semibold text-lg hover:scale-105 transition">Начать уроки</a>
+                    <a href="examples.html" class="px-8 py-4 border-2 border-white/70 rounded-3xl font-semibold text-lg hover:bg-white/10 transition">Примеры работ</a>
+                </div>
+            </div>
+            <div class="relative">
+                <img src="https://picsum.photos/id/1015/800/620" alt="AR в классе" class="rounded-3xl shadow-2xl">
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="title-font text-4xl font-bold text-center mb-16">Возможности платформы</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white border rounded-3xl p-8 card-hover">
+                    <div class="text-5xl mb-6">📚</div>
+                    <h3 class="text-2xl font-semibold mb-3">Интерактивные уроки</h3>
+                    <p class="text-gray-600">Понятные объяснения + практические задания по дополненной реальности.</p>
+                </div>
+                <div class="bg-white border rounded-3xl p-8 card-hover">
+                    <div class="text-5xl mb-6">🛠️</div>
+                    <h3 class="text-2xl font-semibold mb-3">Простые инструменты</h3>
+                    <p class="text-gray-600">AR.js, A-Frame, CoSpaces Edu и другие бесплатные платформы.</p>
+                </div>
+                <div class="bg-white border rounded-3xl p-8 card-hover">
+                    <div class="text-5xl mb-6">🏆</div>
+                    <h3 class="text-2xl font-semibold mb-3">Творческие проекты</h3>
+                    <p class="text-gray-600">Создавай свои AR-модели, игры и виртуальные выставки.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-900 text-white py-16">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <p>© 2026 AR Мир — образовательный проект для 5–6 классов</p>
+        </div>
+    </footer>
+</body>
+</html>
