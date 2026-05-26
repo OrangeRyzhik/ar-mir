@@ -7,7 +7,6 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
     
-    <!-- A-Frame + AR.js (для настоящей дополненной реальности) -->
     <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
     <script src="https://raw.githack.com/AR-js/AR.js/master/aframe/build/aframe-ar.js"></script>
 
@@ -18,12 +17,11 @@
         .progress-bar { transition: width 0.5s ease; }
         .step { display: none; }
         .step.active { display: block; }
-        .ar-container { height: 420px; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 25px rgba(0,0,0,0.15); }
+        .ar-container { height: 450px; border-radius: 20px; overflow: hidden; background: #000; }
     </style>
 </head>
 <body class="bg-gray-50">
 
-    <!-- Навигация -->
     <nav class="bg-white border-b sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
             <div class="flex items-center gap-3">
@@ -31,63 +29,53 @@
                 <span class="title-font text-3xl font-bold text-indigo-600">AR Мир</span>
             </div>
             <div class="hidden md:flex items-center gap-8 text-lg font-medium">
-                <a href="index.html" class="hover:text-indigo-600">Главная</a>
-                <a href="about.html" class="hover:text-indigo-600">О проекте</a>
-                <a href="technologies.html" class="hover:text-indigo-600">Технологии</a>
+                <a href="index.html">Главная</a>
+                <a href="about.html">О проекте</a>
+                <a href="technologies.html">Технологии</a>
                 <a href="lessons.html" class="text-indigo-600">Уроки</a>
-                <a href="examples.html" class="hover:text-indigo-600">Примеры</a>
+                <a href="examples.html">Примеры</a>
             </div>
-            <button id="menuButton" class="md:hidden text-3xl text-gray-700">
-                <i class="fas fa-bars"></i>
-            </button>
         </div>
     </nav>
 
     <!-- Список уроков -->
     <div class="max-w-6xl mx-auto px-6 py-12" id="lessonsList">
-        <h1 class="title-font text-5xl font-bold text-center mb-4">Уроки с дополненной реальностью</h1>
-        <p class="text-center text-gray-600 mb-4">Откройте сайт по **HTTPS** и используйте смартфон</p>
-        <p class="text-center text-red-500 text-sm mb-12">Распечатайте маркеры Hiro и Kanji для лучшего результата</p>
+        <h1 class="title-font text-5xl font-bold text-center mb-4">Уроки с AR</h1>
+        <p class="text-center text-amber-600 mb-8">Откройте на смартфоне + разрешите камеру</p>
 
         <div class="grid md:grid-cols-2 gap-8">
             <div onclick="startLesson(1)" class="bg-white rounded-3xl shadow-xl overflow-hidden hover:shadow-2xl cursor-pointer">
                 <div class="h-64 bg-gradient-to-br from-blue-600 to-cyan-500 flex items-center justify-center text-8xl">🏔️</div>
-                <div class="p-8"><h3 class="text-2xl font-semibold">Великие горы мира</h3><p class="text-gray-600">География</p></div>
+                <div class="p-8"><h3 class="text-2xl font-semibold">Великие горы мира</h3></div>
             </div>
-
             <div onclick="startLesson(2)" class="bg-white rounded-3xl shadow-xl overflow-hidden hover:shadow-2xl cursor-pointer">
                 <div class="h-64 bg-gradient-to-br from-emerald-600 to-teal-500 flex items-center justify-center text-8xl">🧬</div>
-                <div class="p-8"><h3 class="text-2xl font-semibold">Строение клетки</h3><p class="text-gray-600">Биология</p></div>
+                <div class="p-8"><h3 class="text-2xl font-semibold">Строение клетки</h3></div>
             </div>
-
             <div onclick="startLesson(3)" class="bg-white rounded-3xl shadow-xl overflow-hidden hover:shadow-2xl cursor-pointer">
                 <div class="h-64 bg-gradient-to-br from-amber-600 to-orange-500 flex items-center justify-center text-8xl">🏛️</div>
-                <div class="p-8"><h3 class="text-2xl font-semibold">Древний Египет</h3><p class="text-gray-600">История</p></div>
+                <div class="p-8"><h3 class="text-2xl font-semibold">Древний Египет</h3></div>
             </div>
-
             <div onclick="startLesson(4)" class="bg-white rounded-3xl shadow-xl overflow-hidden hover:shadow-2xl cursor-pointer">
                 <div class="h-64 bg-gradient-to-br from-purple-600 to-pink-500 flex items-center justify-center text-8xl">📖</div>
-                <div class="p-8"><h3 class="text-2xl font-semibold">Герои русских сказок</h3><p class="text-gray-600">Литература</p></div>
+                <div class="p-8"><h3 class="text-2xl font-semibold">Герои русских сказок</h3></div>
             </div>
         </div>
     </div>
 
-    <!-- ==================== УРОК ==================== -->
+    <!-- Урок -->
     <div id="lessonScreen" class="hidden fixed inset-0 bg-gray-50 z-50 overflow-auto">
         <div class="max-w-5xl mx-auto px-6 py-8">
-            <button onclick="closeLesson()" class="flex items-center gap-2 text-gray-600 hover:text-black mb-6">
+            <button onclick="closeLesson()" class="flex items-center gap-2 mb-6 text-lg text-gray-600 hover:text-black">
                 ← Закрыть урок
             </button>
             
             <h1 id="lessonTitle" class="title-font text-4xl font-bold text-center mb-8"></h1>
 
             <div class="mb-10">
-                <div class="flex justify-between text-sm mb-2 font-medium">
-                    <span>Прогресс</span>
-                    <span id="progressText">0%</span>
-                </div>
+                <div class="flex justify-between text-sm mb-2"><span>Прогресс</span><span id="progressText">0%</span></div>
                 <div class="h-3 bg-gray-200 rounded-full overflow-hidden">
-                    <div id="progressBar" class="progress-bar h-3 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-full" style="width: 0%"></div>
+                    <div id="progressBar" class="progress-bar h-3 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-full" style="width:0%"></div>
                 </div>
             </div>
 
@@ -129,83 +117,46 @@
                 html = `
                     <div id="step1" class="step active">
                         <h2 class="text-3xl font-semibold mb-6">1. Введение</h2>
-                        <p class="text-lg">Давайте посмотрим на великие горы в дополненной реальности!</p>
-                        <button onclick="nextStep()" class="mt-8 px-8 py-4 bg-indigo-600 text-white rounded-3xl">Продолжить</button>
+                        <p class="text-lg">Сейчас вы увидите горы в дополненной реальности.</p>
+                        <button onclick="nextStep()" class="mt-10 px-8 py-4 bg-indigo-600 text-white rounded-3xl">Начать урок</button>
                     </div>
 
                     <div id="step2" class="step">
-                        <h2 class="text-3xl font-semibold mb-6">2. AR Маркер — Hiro (Эверест)</h2>
+                        <h2 class="text-3xl font-semibold mb-6">2. AR Маркер — Hiro</h2>
                         <div class="ar-container">
                             <a-scene embedded arjs="sourceType: webcam; debugUIEnabled: false;">
                                 <a-marker preset="hiro">
-                                    <a-box position="0 0.6 0" material="color: #1e40af;" height="1.4" width="1.4" depth="1.4"></a-box>
-                                    <a-text value="Эверест" position="0 2 0" align="center" color="#1e3a8a" scale="3 3 3"></a-text>
+                                    <a-box position="0 0.6 0" material="color: #1e40af" height="1.5" width="1.5" depth="1.5"></a-box>
+                                    <a-text value="Эверест" position="0 2.2 0" align="center" color="white" scale="3 3 3"></a-text>
                                 </a-marker>
                                 <a-entity camera></a-entity>
                             </a-scene>
                         </div>
                         <div class="flex gap-4 mt-8">
                             <button onclick="prevStep()" class="px-8 py-4 border rounded-3xl">← Назад</button>
-                            <button onclick="nextStep()" class="px-8 py-4 bg-indigo-600 text-white rounded-3xl">Далее</button>
+                            <button onclick="nextStep()" class="px-8 py-4 bg-indigo-600 text-white rounded-3xl">Далее →</button>
                         </div>
                     </div>
 
                     <div id="step3" class="step">
-                        <h2 class="text-3xl font-semibold mb-6">3. AR Маркер — Kanji (Килиманджаро)</h2>
+                        <h2 class="text-3xl font-semibold mb-6">3. AR Маркер — Kanji</h2>
                         <div class="ar-container">
                             <a-scene embedded arjs="sourceType: webcam;">
                                 <a-marker preset="kanji">
-                                    <a-cone position="0 1 0" height="2" radius-bottom="1.2" material="color: #3b82f6;"></a-cone>
+                                    <a-cone position="0 1 0" height="2.5" radius-bottom="1.2" material="color: #3b82f6"></a-cone>
                                 </a-marker>
                                 <a-entity camera></a-entity>
                             </a-scene>
+                        </div>
+                        <div class="flex gap-4 mt-8">
+                            <button onclick="prevStep()" class="px-8 py-4 border rounded-3xl">← Назад</button>
+                            <button onclick="nextStep()" class="px-8 py-4 bg-indigo-600 text-white rounded-3xl">Далее →</button>
                         </div>
                     </div>`;
             } 
-            else if (currentLesson === 2) { // Биология
-                html = `
-                    <div id="step1" class="step active"><h2 class="text-3xl font-semibold mb-6">1. Введение</h2><button onclick="nextStep()" class="mt-8 px-8 py-4 bg-indigo-600 text-white rounded-3xl">Продолжить</button></div>
-                    <div id="step2" class="step">
-                        <h2 class="text-3xl font-semibold mb-6">2. AR Маркер — Hiro (Ядро клетки)</h2>
-                        <div class="ar-container">
-                            <a-scene embedded arjs="sourceType: webcam;">
-                                <a-marker preset="hiro">
-                                    <a-sphere position="0 0.8 0" radius="1" material="color: #22c55e;"></a-sphere>
-                                </a-marker>
-                                <a-entity camera></a-entity>
-                            </a-scene>
-                        </div>
-                    </div>`;
-            } 
-            else if (currentLesson === 3) { // История
-                html = `
-                    <div id="step1" class="step active"><h2 class="text-3xl font-semibold mb-6">1. Введение</h2><button onclick="nextStep()" class="mt-8 px-8 py-4 bg-indigo-600 text-white rounded-3xl">Продолжить</button></div>
-                    <div id="step2" class="step">
-                        <h2 class="text-3xl font-semibold mb-6">2. AR Маркер — Hiro (Пирамида)</h2>
-                        <div class="ar-container">
-                            <a-scene embedded arjs="sourceType: webcam;">
-                                <a-marker preset="hiro">
-                                    <a-box position="0 0.5 0" material="color: #f59e0b;" height="1.8" width="1.8" depth="1.8"></a-box>
-                                </a-marker>
-                                <a-entity camera></a-entity>
-                            </a-scene>
-                        </div>
-                    </div>`;
-            } 
-            else if (currentLesson === 4) { // Литература
-                html = `
-                    <div id="step1" class="step active"><h2 class="text-3xl font-semibold mb-6">1. Введение</h2><button onclick="nextStep()" class="mt-8 px-8 py-4 bg-indigo-600 text-white rounded-3xl">Продолжить</button></div>
-                    <div id="step2" class="step">
-                        <h2 class="text-3xl font-semibold mb-6">2. AR Маркер — Kanji (Богатырь)</h2>
-                        <div class="ar-container">
-                            <a-scene embedded arjs="sourceType: webcam;">
-                                <a-marker preset="kanji">
-                                    <a-cylinder position="0 1 0" height="2" radius="0.8" material="color: #8b5cf6;"></a-cylinder>
-                                </a-marker>
-                                <a-entity camera></a-entity>
-                            </a-scene>
-                        </div>
-                    </div>`;
+            // Аналогично можно добавить для других уроков (2,3,4)
+            else {
+                html = `<p class="text-center text-xl py-20">Урок в разработке...</p>`;
             }
 
             document.getElementById('lessonContent').innerHTML = html;
@@ -227,15 +178,19 @@
             }
         }
 
+        function prevStep() {
+            if (currentStep > 1) {
+                currentStep--;
+                updateProgress();
+                showStep(currentStep);
+            }
+        }
+
         function updateProgress() {
             const percent = Math.round(((currentStep - 1) / lessons[currentLesson].totalSteps) * 100);
             document.getElementById('progressBar').style.width = percent + '%';
             document.getElementById('progressText').textContent = percent + '%';
         }
-
-        // Мобильное меню
-        document.getElementById('menuButton').addEventListener('click', () => document.getElementById('mobileMenu').classList.remove('hidden'));
-        // Добавьте closeMenu при необходимости
     </script>
 </body>
 </html>
