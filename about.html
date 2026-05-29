@@ -10,12 +10,23 @@
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
         body { font-family: 'Inter', sans-serif; }
         .title-font { font-family: 'Space Grotesk', sans-serif; }
+        
+        .hero-about {
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #d946ef 100%);
+        }
+        .benefit-card {
+            transition: all 0.3s ease;
+        }
+        .benefit-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 30px -12px rgba(0, 0, 0, 0.2);
+        }
     </style>
 </head>
 <body class="bg-gray-50">
 
-    <!-- NAV (копируется во все страницы) -->
-    <nav class="bg-white border-b sticky top-0 z-50">
+    <!-- NAVIGATION -->
+    <nav class="bg-white border-b sticky top-0 z-50 shadow-sm">
         <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
             <div class="flex items-center gap-3">
                 <div class="w-11 h-11 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-3xl flex items-center justify-center text-3xl text-white">👾</div>
@@ -32,20 +43,134 @@
         </div>
     </nav>
 
-    <div class="max-w-4xl mx-auto px-6 py-20">
-        <h1 class="title-font text-5xl font-bold mb-10 text-center">О проекте «AR Мир»</h1>
-        <div class="prose prose-lg mx-auto text-gray-700">
-            <p>Проект создан для того, чтобы познакомить учеников 5–6 классов с современными технологиями дополненной реальности в увлекательной и доступной форме.</p>
-            <p>Мы верим, что уже в школе дети должны не только потреблять технологии, но и уметь их создавать.</p>
-            
-            <h2 class="text-3xl font-semibold mt-12 mb-4">Наши цели:</h2>
-            <ul class="list-disc pl-6 space-y-3">
-                <li>Сделать изучение AR интересным и понятным</li>
-                <li>Развить пространственное мышление и креативность</li>
-                <li>Подготовить школьников к технологиям будущего</li>
-                <li>Дать возможность создавать собственные AR-проекты</li>
-            </ul>
+    <!-- Hero секция -->
+    <section class="hero-about text-white py-24">
+        <div class="max-w-6xl mx-auto px-6 text-center">
+            <div class="inline-flex items-center gap-3 bg-white/20 backdrop-blur-md px-6 py-3 rounded-3xl mb-6">
+                <i class="fas fa-mobile-alt text-2xl"></i>
+                <span class="font-semibold">Инновации в образовании</span>
+            </div>
+            <h1 class="title-font text-5xl md:text-6xl font-bold mb-6">О проекте «AR Мир»</h1>
+            <p class="text-xl text-white/90 max-w-3xl mx-auto">
+                Мы создаём будущее образования уже сегодня. Дополненная реальность — не просто технология, а новый способ познавать мир.
+            </p>
+        </div>
+    </section>
+
+    <!-- Основной контент -->
+    <div class="max-w-6xl mx-auto px-6 py-16">
+
+        <!-- Что такое AR Мир -->
+        <div class="grid md:grid-cols-2 gap-12 items-center mb-20">
+            <div>
+                <h2 class="text-3xl font-bold mb-4">Что такое AR Мир?</h2>
+                <p class="text-gray-700 text-lg leading-relaxed mb-4">
+                    <span class="font-semibold text-indigo-600">AR Мир</span> — это образовательная платформа для учеников 5–6 классов, 
+                    которая знакомит с технологией дополненной реальности (AR) через интерактивные уроки по географии, истории, биологии и литературе.
+                </p>
+                <p class="text-gray-700 text-lg leading-relaxed">
+                    Мы не просто рассказываем о AR — мы даём возможность <span class="font-semibold">сразу её использовать</span>. 
+                    В каждом уроке есть AR-маркеры: наведите на них камеру телефона или планшета, и на экране оживут 3D-модели, памятники, 
+                    строение клетки или сказочные герои. Без специальных очков — только ваш смартфон!
+                </p>
+            </div>
+            <div class="rounded-3xl overflow-hidden shadow-xl">
+                <img src="https://images.pexels.com/photos/4145190/pexels-photo-4145190.jpeg?w=800&h=500&fit=crop" 
+                     alt="Ребёнок использует планшет с дополненной реальностью" 
+                     class="w-full h-72 object-cover">
+            </div>
+        </div>
+
+        <!-- Почему AR в образовании? -->
+        <div class="bg-white rounded-3xl shadow-xl p-10 mb-20">
+            <h2 class="text-3xl font-bold text-center mb-12">Почему дополненная реальность помогает учиться?</h2>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="benefit-card bg-gradient-to-br from-blue-50 to-indigo-50 p-6 rounded-2xl text-center">
+                    <div class="text-5xl mb-4">🧠</div>
+                    <h3 class="text-xl font-semibold mb-2">Наглядность и понимание</h3>
+                    <p class="text-gray-600">Сложные абстрактные понятия (строение клетки, исторические сражения, географические процессы) становятся видимыми и понятными.</p>
+                </div>
+                <div class="benefit-card bg-gradient-to-br from-purple-50 to-pink-50 p-6 rounded-2xl text-center">
+                    <div class="text-5xl mb-4">🎮</div>
+                    <h3 class="text-xl font-semibold mb-2">Вовлечённость и интерес</h3>
+                    <p class="text-gray-600">Ученики не пассивно слушают, а взаимодействуют с материалом. Это повышает мотивацию и желание учиться.</p>
+                </div>
+                <div class="benefit-card bg-gradient-to-br from-emerald-50 to-teal-50 p-6 rounded-2xl text-center">
+                    <div class="text-5xl mb-4">💡</div>
+                    <h3 class="text-xl font-semibold mb-2">Развитие пространственного мышления</h3>
+                    <p class="text-gray-600">3D-модели и объёмные сцены помогают лучше представлять реальные объекты и их взаимосвязи.</p>
+                </div>
+                <div class="benefit-card bg-gradient-to-br from-amber-50 to-orange-50 p-6 rounded-2xl text-center">
+                    <div class="text-5xl mb-4">📱</div>
+                    <h3 class="text-xl font-semibold mb-2">Доступность</h3>
+                    <p class="text-gray-600">Для работы с AR нужен только смартфон или планшет — не требуется дорогое оборудование или очки.</p>
+                </div>
+                <div class="benefit-card bg-gradient-to-br from-cyan-50 to-sky-50 p-6 rounded-2xl text-center">
+                    <div class="text-5xl mb-4">🏫</div>
+                    <h3 class="text-xl font-semibold mb-2">Подходит для школы и дома</h3>
+                    <p class="text-gray-600">Уроки можно использовать как на занятиях в классе, так и для самостоятельного изучения.</p>
+                </div>
+                <div class="benefit-card bg-gradient-to-br from-rose-50 to-red-50 p-6 rounded-2xl text-center">
+                    <div class="text-5xl mb-4">🚀</div>
+                    <h3 class="text-xl font-semibold mb-2">Подготовка к будущему</h3>
+                    <p class="text-gray-600">Дети знакомятся с технологией, которая уже меняет промышленность, медицину и науку.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Как мы это делаем? (исправленный блок с надёжной картинкой) -->
+        <div class="grid md:grid-cols-2 gap-12 items-center mb-20">
+            <div class="order-2 md:order-1">
+                <img src="https://images.pexels.com/photos/7878743/pexels-photo-7878743.jpeg?w=800&h=500&fit=crop" 
+                     alt="Школьник создаёт AR-проект на планшете" 
+                     class="rounded-3xl shadow-xl w-full">
+            </div>
+            <div class="order-1 md:order-2">
+                <h2 class="text-3xl font-bold mb-6">Как мы это делаем?</h2>
+                <ul class="space-y-5 text-gray-700 text-lg">
+                    <li class="flex items-start gap-3">
+                        <span class="text-indigo-600 text-2xl leading-6">✔</span>
+                        <span>Используем <span class="font-semibold">AR.js</span> и <span class="font-semibold">A-Frame</span> — технологии, работающие прямо в браузере.</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <span class="text-indigo-600 text-2xl leading-6">✔</span>
+                        <span>Создаём 3D-модели исторических памятников, природных объектов и живых организмов.</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <span class="text-indigo-600 text-2xl leading-6">✔</span>
+                        <span>Разрабатываем пошаговые уроки с теорией, AR-экспериментами и тестами.</span>
+                    </li>
+                    <li class="flex items-start gap-3">
+                        <span class="text-indigo-600 text-2xl leading-6">✔</span>
+                        <span>Поощряем учеников создавать свои AR-проекты (примеры можно посмотреть в разделе «Примеры работ»).</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Цитата -->
+        <div class="bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-3xl p-10 text-center mb-16">
+            <i class="fas fa-quote-left text-5xl mb-4 opacity-50"></i>
+            <p class="text-2xl italic max-w-3xl mx-auto">
+                «Дополненная реальность не заменяет реальный мир — она делает его ещё более увлекательным и понятным для обучения. И для этого не нужны VR-очки, достаточно вашего смартфона.»
+            </p>
+            <p class="mt-4 font-semibold">— Команда AR Мир</p>
+        </div>
+
+        <!-- Призыв к действию -->
+        <div class="text-center">
+            <h2 class="text-3xl font-bold mb-4">Готовы попробовать?</h2>
+            <p class="text-gray-600 text-lg mb-8">Выберите предмет и начните первый урок с дополненной реальностью уже сегодня!</p>
+            <a href="lessons.html" class="inline-block px-10 py-4 bg-indigo-600 text-white rounded-3xl font-semibold text-lg hover:bg-indigo-700 transition transform hover:scale-105">
+                Перейти к урокам
+            </a>
         </div>
     </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12 text-center mt-12">
+        <p>© 2026 AR Мир — образовательный проект для 5–6 классов</p>
+    </footer>
+
 </body>
 </html>

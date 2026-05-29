@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>История - AR Мир</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        .title-font { font-family: 'Space Grotesk', sans-serif; }
+        
+        .hero-subject {
+            background: linear-gradient(135deg, #7c2d12 0%, #f59e0b 100%);
+        }
+        .lesson-card {
+            transition: all 0.3s ease;
+        }
+        .lesson-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <nav class="bg-white border-b sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <div class="w-11 h-11 bg-gradient-to-br from-amber-700 to-orange-600 rounded-3xl flex items-center justify-center text-3xl text-white">🏛️</div>
+                <span class="title-font text-3xl font-bold text-amber-700">AR Мир</span>
+            </div>
+            <a href="lessons.html" class="text-amber-700 font-medium">← Все предметы</a>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero-subject text-white py-20">
+        <div class="max-w-6xl mx-auto px-6 text-center">
+            <div class="inline-flex items-center gap-3 bg-white/20 backdrop-blur-md px-6 py-3 rounded-3xl mb-6">
+                <span class="text-4xl">🏛️</span>
+                <span class="font-semibold text-lg">История</span>
+            </div>
+            <h1 class="title-font text-5xl md:text-6xl font-bold mb-4">Путешествие во времени</h1>
+            <p class="text-xl text-white/90 max-w-2xl mx-auto">
+                Изучай древние цивилизации, великих правителей и важные события мировой истории с помощью дополненной реальности
+            </p>
+        </div>
+    </section>
+
+    <div class="max-w-6xl mx-auto px-6 py-12">
+        <!-- Общая шкала прогресса -->
+        <div class="mb-12 bg-white rounded-3xl p-6 shadow">
+            <div class="flex justify-between items-center mb-3">
+                <span class="font-medium text-lg">Прогресс по Истории</span>
+                <span id="subjectProgress" class="text-2xl font-bold text-amber-700">0%</span>
+            </div>
+            <div class="h-4 bg-gray-100 rounded-full overflow-hidden">
+                <div id="subjectBar" class="h-4 bg-gradient-to-r from-amber-600 to-orange-500 rounded-full w-0 transition-all"></div>
+            </div>
+        </div>
+
+        <!-- Уроки -->
+        <h2 class="text-3xl font-semibold mb-8">Уроки по Истории</h2>
+        
+        <div class="grid md:grid-cols-2 gap-8">
+            <!-- Урок 1 -->
+            <div onclick="window.location.href='lesson-history-1.html'" class="lesson-card bg-white rounded-3xl shadow-xl overflow-hidden cursor-pointer">
+                <div class="h-56 bg-gradient-to-br from-amber-700 to-orange-600 flex items-center justify-center text-7xl">📜</div>
+                <div class="p-8">
+                    <h3 class="text-2xl font-semibold mb-2">Урок 1. Введение в историю</h3>
+                    <p class="text-gray-600">Что такое история и зачем её изучать</p>
+                    <div class="mt-6 text-sm text-gray-500">Прогресс: <span id="p1">0%</span></div>
+                </div>
+            </div>
+
+            <!-- Урок 2 -->
+            <div onclick="window.location.href='lesson-history-2.html'" class="lesson-card bg-white rounded-3xl shadow-xl overflow-hidden cursor-pointer">
+                <div class="h-56 bg-gradient-to-br from-orange-600 to-amber-500 flex items-center justify-center text-7xl">🦅</div>
+                <div class="p-8">
+                    <h3 class="text-2xl font-semibold mb-2">Урок 2. Древний Египет (AR)</h3>
+                    <p class="text-gray-600">Пирамиды, фараоны и великая цивилизация</p>
+                    <div class="mt-6 text-sm text-gray-500">Прогресс: <span id="p2">0%</span></div>
+                </div>
+            </div>
+
+            <!-- Урок 3 -->
+            <div onclick="window.location.href='lesson-history-3.html'" class="lesson-card bg-white rounded-3xl shadow-xl overflow-hidden cursor-pointer">
+                <div class="h-56 bg-gradient-to-br from-amber-500 to-yellow-600 flex items-center justify-center text-7xl">🏛️</div>
+                <div class="p-8">
+                    <h3 class="text-2xl font-semibold mb-2">Урок 3. Древняя Греция (AR)</h3>
+                    <p class="text-gray-600">Боги, герои и первые демократии</p>
+                    <div class="mt-6 text-sm text-gray-500">Прогресс: <span id="p3">0%</span></div>
+                </div>
+            </div>
+
+            <!-- Урок 4 -->
+            <div onclick="window.location.href='lesson-history-4.html'" class="lesson-card bg-white rounded-3xl shadow-xl overflow-hidden cursor-pointer">
+                <div class="h-56 bg-gradient-to-br from-yellow-600 to-amber-700 flex items-center justify-center text-7xl">📝</div>
+                <div class="p-8">
+                    <h3 class="text-2xl font-semibold mb-2">Урок 4. Итоговый тест</h3>
+                    <p class="text-gray-600">Проверка знаний</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function loadSubjectProgress() {
+            let completed = 0;
+            for (let i = 1; i <= 4; i++) {
+                if (localStorage.getItem(`history_lesson_${i}_completed`) === "true") completed++;
+            }
+            const percent = Math.round((completed / 4) * 100);
+            document.getElementById('subjectBar').style.width = percent + '%';
+            document.getElementById('subjectProgress').textContent = percent + '%';
+        }
+
+        window.onload = loadSubjectProgress;
+    </script>
+</body>
+</html>

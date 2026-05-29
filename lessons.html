@@ -2,44 +2,19 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Уроки - AR Мир</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
-    
-    <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
-    <script src="https://raw.githack.com/AR-js/AR.js/master/aframe/build/aframe-ar.js"></script>
-
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
         body { font-family: 'Inter', sans-serif; }
         .title-font { font-family: 'Space Grotesk', sans-serif; }
-        .progress-bar { transition: width 0.5s ease; }
-        .step { display: none; }
-        .step.active { display: block; }
-        .ar-container { 
-            height: 460px; 
-            border-radius: 20px; 
-            overflow: hidden; 
-            background: #111827; 
-            position: relative;
-        }
-        .ar-instruction {
-            position: absolute;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: rgba(0,0,0,0.85);
-            color: white;
-            padding: 12px 24px;
-            border-radius: 30px;
-            font-size: 15px;
-            z-index: 20;
-        }
     </style>
 </head>
 <body class="bg-gray-50">
 
+    <!-- Навигация -->
     <nav class="bg-white border-b sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
             <div class="flex items-center gap-3">
@@ -56,325 +31,53 @@
         </div>
     </nav>
 
-    <!-- Список уроков -->
-    <div class="max-w-6xl mx-auto px-6 py-12" id="lessonsList">
-        <h1 class="title-font text-5xl font-bold text-center mb-4">Уроки с дополненной реальностью</h1>
-        <p class="text-center text-amber-600">Открывайте на компьютере и сканируйте телефоном</p>
+    <div class="max-w-6xl mx-auto px-6 py-16">
+        <h1 class="title-font text-5xl font-bold text-center mb-4">Выберите предмет</h1>
+        <p class="text-center text-gray-600 mb-12">5–6 классы • Дополненная реальность</p>
 
-        <div class="grid md:grid-cols-2 gap-8 mt-10">
-            <div onclick="startLesson(1)" class="bg-white rounded-3xl shadow-xl overflow-hidden hover:shadow-2xl cursor-pointer">
-                <div class="h-64 bg-gradient-to-br from-blue-600 to-cyan-500 flex items-center justify-center text-8xl">🏔️</div>
-                <div class="p-8"><h3 class="text-2xl font-semibold">Великие горы мира</h3><p class="text-gray-600">География</p></div>
-            </div>
-            <div onclick="startLesson(2)" class="bg-white rounded-3xl shadow-xl overflow-hidden hover:shadow-2xl cursor-pointer">
-                <div class="h-64 bg-gradient-to-br from-emerald-600 to-teal-500 flex items-center justify-center text-8xl">🧬</div>
-                <div class="p-8"><h3 class="text-2xl font-semibold">Строение клетки</h3><p class="text-gray-600">Биология</p></div>
-            </div>
-            <div onclick="startLesson(3)" class="bg-white rounded-3xl shadow-xl overflow-hidden hover:shadow-2xl cursor-pointer">
-                <div class="h-64 bg-gradient-to-br from-amber-600 to-orange-500 flex items-center justify-center text-8xl">🏛️</div>
-                <div class="p-8"><h3 class="text-2xl font-semibold">Древний Египет</h3><p class="text-gray-600">История</p></div>
-            </div>
-            <div onclick="startLesson(4)" class="bg-white rounded-3xl shadow-xl overflow-hidden hover:shadow-2xl cursor-pointer">
-                <div class="h-64 bg-gradient-to-br from-purple-600 to-pink-500 flex items-center justify-center text-8xl">📖</div>
-                <div class="p-8"><h3 class="text-2xl font-semibold">Герои русских сказок</h3><p class="text-gray-600">Литература</p></div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Экран урока -->
-    <div id="lessonScreen" class="hidden fixed inset-0 bg-gray-50 z-50 overflow-auto">
-        <div class="max-w-5xl mx-auto px-6 py-8">
-            <button onclick="closeLesson()" class="flex items-center gap-2 mb-6 text-gray-600 hover:text-black">
-                ← Закрыть урок
-            </button>
+        <div class="grid md:grid-cols-2 gap-8">
             
-            <h1 id="lessonTitle" class="title-font text-4xl font-bold text-center mb-8"></h1>
-
-            <div class="mb-10">
-                <div class="flex justify-between text-sm mb-2"><span>Прогресс</span><span id="progressText">0%</span></div>
-                <div class="h-3 bg-gray-200 rounded-full overflow-hidden">
-                    <div id="progressBar" class="progress-bar h-3 bg-gradient-to-r from-indigo-500 to-purple-600 rounded-full" style="width:0%"></div>
+            <!-- География -->
+            <div onclick="window.location.href='geography.html'" 
+                 class="bg-white rounded-3xl shadow-xl overflow-hidden hover:shadow-2xl transition cursor-pointer">
+                <div class="h-64 bg-gradient-to-br from-blue-600 to-cyan-500 flex items-center justify-center text-8xl">🏔️</div>
+                <div class="p-8">
+                    <h3 class="text-2xl font-semibold mb-2">География</h3>
+                    <p class="text-gray-600">Изучение Земли через дополненную реальность</p>
                 </div>
             </div>
 
-            <div id="lessonContent" class="bg-white rounded-3xl shadow-2xl p-8 md:p-12"></div>
+            <!-- Биология -->
+            <div onclick="window.location.href='biology.html'" 
+                 class="bg-white rounded-3xl shadow-xl overflow-hidden hover:shadow-2xl transition cursor-pointer">
+                <div class="h-64 bg-gradient-to-br from-emerald-600 to-teal-500 flex items-center justify-center text-8xl">🧬</div>
+                <div class="p-8">
+                    <h3 class="text-2xl font-semibold mb-2">Биология</h3>
+                    <p class="text-gray-600">Живой мир в дополненной реальности</p>
+                </div>
+            </div>
+
+            <!-- История -->
+            <div onclick="window.location.href='history.html'" 
+                 class="bg-white rounded-3xl shadow-xl overflow-hidden hover:shadow-2xl transition cursor-pointer">
+                <div class="h-64 bg-gradient-to-br from-amber-600 to-orange-500 flex items-center justify-center text-8xl">🏛️</div>
+                <div class="p-8">
+                    <h3 class="text-2xl font-semibold mb-2">История</h3>
+                    <p class="text-gray-600">Путешествие в прошлое с AR</p>
+                </div>
+            </div>
+
+            <!-- Литература -->
+            <div onclick="window.location.href='literature.html'" 
+                 class="bg-white rounded-3xl shadow-xl overflow-hidden hover:shadow-2xl transition cursor-pointer">
+                <div class="h-64 bg-gradient-to-br from-purple-600 to-pink-500 flex items-center justify-center text-8xl">📖</div>
+                <div class="p-8">
+                    <h3 class="text-2xl font-semibold mb-2">Литература</h3>
+                    <p class="text-gray-600">Герои книг в дополненной реальности</p>
+                </div>
+            </div>
         </div>
     </div>
 
-    <script>
-        let currentLesson = 1;
-        let currentStep = 1;
-
-        const lessons = {
-            1: { title: "Великие горы мира", emoji: "🏔️", totalSteps: 5 },
-            2: { title: "Строение клетки", emoji: "🧬", totalSteps: 5 },
-            3: { title: "Древний Египет", emoji: "🏛️", totalSteps: 5 },
-            4: { title: "Герои русских сказок", emoji: "📖", totalSteps: 5 }
-        };
-
-        const markerUrl = "https://raw.githubusercontent.com/OrangeRyzhik/ar-mir/main/markers/Pattern-hiro.png";
-
-        function startLesson(id) {
-            currentLesson = id;
-            currentStep = 1;
-            document.getElementById('lessonsList').classList.add('hidden');
-            document.getElementById('lessonScreen').classList.remove('hidden');
-            renderLesson();
-        }
-
-        function closeLesson() {
-            document.getElementById('lessonScreen').classList.add('hidden');
-            document.getElementById('lessonsList').classList.remove('hidden');
-        }
-
-        function renderLesson() {
-            const lesson = lessons[currentLesson];
-            document.getElementById('lessonTitle').innerHTML = `${lesson.emoji} ${lesson.title}`;
-
-            let html = '';
-
-            if (currentLesson === 1) { // География
-                html = `
-                    <div id="step1" class="step active">
-                        <h2 class="text-3xl font-semibold mb-6">1. Введение</h2>
-                        <p class="text-lg">Сегодня мы изучим великие горы планеты с помощью дополненной реальности.</p>
-                        <button onclick="nextStep()" class="mt-10 px-8 py-4 bg-indigo-600 text-white rounded-3xl">Начать урок</button>
-                    </div>
-                    <div id="step2" class="step">
-                        <h2 class="text-3xl font-semibold mb-6">2. AR Маркер</h2>
-                        <div class="ar-container relative">
-                            <a-scene embedded arjs="sourceType: webcam;">
-                                <a-marker type="pattern" url="${markerUrl}">
-                                    <a-box position="0 0.6 0" material="color: #1e40af" height="1.6" width="1.6" depth="1.6"></a-box>
-                                    <a-text value="Эверест" position="0 2.5 0" align="center" color="white" scale="3.5 3.5 3.5"></a-text>
-                                </a-marker>
-                                <a-entity camera></a-entity>
-                            </a-scene>
-                            <div class="ar-instruction">Наведите камеру телефона на этот экран</div>
-                        </div>
-                        <div class="flex gap-4 mt-8">
-                            <button onclick="prevStep()" class="px-8 py-4 border rounded-3xl">← Назад</button>
-                            <button onclick="nextStep()" class="px-8 py-4 bg-indigo-600 text-white rounded-3xl">Далее →</button>
-                        </div>
-                    </div>
-                    <div id="step3" class="step">
-                        <h2 class="text-3xl font-semibold mb-6">3. Второй AR Маркер</h2>
-                        <div class="ar-container relative">
-                            <a-scene embedded arjs="sourceType: webcam;">
-                                <a-marker type="pattern" url="${markerUrl}">
-                                    <a-cone position="0 1 0" height="2.8" radius-bottom="1.3" material="color: #3b82f6"></a-cone>
-                                </a-marker>
-                                <a-entity camera></a-entity>
-                            </a-scene>
-                            <div class="ar-instruction">Наведите камеру телефона на этот экран</div>
-                        </div>
-                        <div class="flex gap-4 mt-8">
-                            <button onclick="prevStep()" class="px-8 py-4 border rounded-3xl">← Назад</button>
-                            <button onclick="nextStep()" class="px-8 py-4 bg-indigo-600 text-white rounded-3xl">Далее →</button>
-                        </div>
-                    </div>
-                    <div id="step4" class="step">
-                        <h2 class="text-3xl font-semibold mb-6">4. Ваши впечатления</h2>
-                        <textarea class="w-full h-40 border rounded-2xl p-6" placeholder="Что интересного вы увидели?"></textarea>
-                        <div class="flex gap-4 mt-8">
-                            <button onclick="prevStep()" class="px-8 py-4 border rounded-3xl">← Назад</button>
-                            <button onclick="nextStep()" class="px-8 py-4 bg-indigo-600 text-white rounded-3xl">Завершить урок</button>
-                        </div>
-                    </div>
-                    <div id="step5" class="step text-center py-20">
-                        <h2 class="text-4xl font-bold text-green-600 mb-6">🎉 Урок завершён!</h2>
-                        <button onclick="closeLesson()" class="px-10 py-5 bg-indigo-600 text-white rounded-3xl">Вернуться к другим урокам</button>
-                    </div>`;
-            } 
-            else if (currentLesson === 2) { // Биология
-                html = `
-                    <div id="step1" class="step active">
-                        <h2 class="text-3xl font-semibold mb-6">1. Введение</h2>
-                        <p class="text-lg">Изучим строение клетки в дополненной реальности.</p>
-                        <button onclick="nextStep()" class="mt-10 px-8 py-4 bg-indigo-600 text-white rounded-3xl">Начать урок</button>
-                    </div>
-                    <div id="step2" class="step">
-                        <h2 class="text-3xl font-semibold mb-6">2. AR Маркер</h2>
-                        <div class="ar-container relative">
-                            <a-scene embedded arjs="sourceType: webcam;">
-                                <a-marker type="pattern" url="${markerUrl}">
-                                    <a-sphere position="0 0.8 0" radius="1.2" material="color: #22c55e"></a-sphere>
-                                </a-marker>
-                                <a-entity camera></a-entity>
-                            </a-scene>
-                            <div class="ar-instruction">Наведите камеру телефона на этот экран</div>
-                        </div>
-                        <div class="flex gap-4 mt-8">
-                            <button onclick="prevStep()" class="px-8 py-4 border rounded-3xl">← Назад</button>
-                            <button onclick="nextStep()" class="px-8 py-4 bg-indigo-600 text-white rounded-3xl">Далее →</button>
-                        </div>
-                    </div>
-                    <div id="step3" class="step">
-                        <h2 class="text-3xl font-semibold mb-6">3. Второй AR Маркер</h2>
-                        <div class="ar-container relative">
-                            <a-scene embedded arjs="sourceType: webcam;">
-                                <a-marker type="pattern" url="${markerUrl}">
-                                    <a-box position="0 0.5 0" material="color: #eab308" height="1" width="1" depth="1"></a-box>
-                                </a-marker>
-                                <a-entity camera></a-entity>
-                            </a-scene>
-                            <div class="ar-instruction">Наведите камеру телефона на этот экран</div>
-                        </div>
-                        <div class="flex gap-4 mt-8">
-                            <button onclick="prevStep()" class="px-8 py-4 border rounded-3xl">← Назад</button>
-                            <button onclick="nextStep()" class="px-8 py-4 bg-indigo-600 text-white rounded-3xl">Далее →</button>
-                        </div>
-                    </div>
-                    <div id="step4" class="step">
-                        <h2 class="text-3xl font-semibold mb-6">4. Ваши впечатления</h2>
-                        <textarea class="w-full h-40 border rounded-2xl p-6" placeholder="Что вы увидели в AR?"></textarea>
-                        <div class="flex gap-4 mt-8">
-                            <button onclick="prevStep()" class="px-8 py-4 border rounded-3xl">← Назад</button>
-                            <button onclick="nextStep()" class="px-8 py-4 bg-indigo-600 text-white rounded-3xl">Завершить урок</button>
-                        </div>
-                    </div>
-                    <div id="step5" class="step text-center py-20">
-                        <h2 class="text-4xl font-bold text-green-600 mb-6">🎉 Урок завершён!</h2>
-                        <button onclick="closeLesson()" class="px-10 py-5 bg-indigo-600 text-white rounded-3xl">Вернуться к другим урокам</button>
-                    </div>`;
-            } 
-            else if (currentLesson === 3) { // История
-                html = `
-                    <div id="step1" class="step active">
-                        <h2 class="text-3xl font-semibold mb-6">1. Введение</h2>
-                        <p class="text-lg">Погрузимся в Древний Египет с помощью AR.</p>
-                        <button onclick="nextStep()" class="mt-10 px-8 py-4 bg-indigo-600 text-white rounded-3xl">Начать урок</button>
-                    </div>
-                    <div id="step2" class="step">
-                        <h2 class="text-3xl font-semibold mb-6">2. AR Маркер</h2>
-                        <div class="ar-container relative">
-                            <a-scene embedded arjs="sourceType: webcam;">
-                                <a-marker type="pattern" url="${markerUrl}">
-                                    <a-box position="0 0.5 0" material="color: #d97706" height="2" width="2" depth="2"></a-box>
-                                </a-marker>
-                                <a-entity camera></a-entity>
-                            </a-scene>
-                            <div class="ar-instruction">Наведите камеру телефона на этот экран</div>
-                        </div>
-                        <div class="flex gap-4 mt-8">
-                            <button onclick="prevStep()" class="px-8 py-4 border rounded-3xl">← Назад</button>
-                            <button onclick="nextStep()" class="px-8 py-4 bg-indigo-600 text-white rounded-3xl">Далее →</button>
-                        </div>
-                    </div>
-                    <div id="step3" class="step">
-                        <h2 class="text-3xl font-semibold mb-6">3. Второй AR Маркер</h2>
-                        <div class="ar-container relative">
-                            <a-scene embedded arjs="sourceType: webcam;">
-                                <a-marker type="pattern" url="${markerUrl}">
-                                    <a-box position="0 0.5 0" material="color: #854d0e" height="1.2" width="2" depth="1"></a-box>
-                                </a-marker>
-                                <a-entity camera></a-entity>
-                            </a-scene>
-                            <div class="ar-instruction">Наведите камеру телефона на этот экран</div>
-                        </div>
-                        <div class="flex gap-4 mt-8">
-                            <button onclick="prevStep()" class="px-8 py-4 border rounded-3xl">← Назад</button>
-                            <button onclick="nextStep()" class="px-8 py-4 bg-indigo-600 text-white rounded-3xl">Далее →</button>
-                        </div>
-                    </div>
-                    <div id="step4" class="step">
-                        <h2 class="text-3xl font-semibold mb-6">4. Ваши впечатления</h2>
-                        <textarea class="w-full h-40 border rounded-2xl p-6" placeholder="Что интересного вы увидели?"></textarea>
-                        <div class="flex gap-4 mt-8">
-                            <button onclick="prevStep()" class="px-8 py-4 border rounded-3xl">← Назад</button>
-                            <button onclick="nextStep()" class="px-8 py-4 bg-indigo-600 text-white rounded-3xl">Завершить урок</button>
-                        </div>
-                    </div>
-                    <div id="step5" class="step text-center py-20">
-                        <h2 class="text-4xl font-bold text-green-600 mb-6">🎉 Урок завершён!</h2>
-                        <button onclick="closeLesson()" class="px-10 py-5 bg-indigo-600 text-white rounded-3xl">Вернуться к другим урокам</button>
-                    </div>`;
-            } 
-            else if (currentLesson === 4) { // Литература
-                html = `
-                    <div id="step1" class="step active">
-                        <h2 class="text-3xl font-semibold mb-6">1. Введение</h2>
-                        <p class="text-lg">Познакомимся с героями русских сказок в AR.</p>
-                        <button onclick="nextStep()" class="mt-10 px-8 py-4 bg-indigo-600 text-white rounded-3xl">Начать урок</button>
-                    </div>
-                    <div id="step2" class="step">
-                        <h2 class="text-3xl font-semibold mb-6">2. AR Маркер</h2>
-                        <div class="ar-container relative">
-                            <a-scene embedded arjs="sourceType: webcam;">
-                                <a-marker type="pattern" url="${markerUrl}">
-                                    <a-cylinder position="0 1.2 0" height="2.8" radius="0.9" material="color: #8b5cf6"></a-cylinder>
-                                </a-marker>
-                                <a-entity camera></a-entity>
-                            </a-scene>
-                            <div class="ar-instruction">Наведите камеру телефона на этот экран</div>
-                        </div>
-                        <div class="flex gap-4 mt-8">
-                            <button onclick="prevStep()" class="px-8 py-4 border rounded-3xl">← Назад</button>
-                            <button onclick="nextStep()" class="px-8 py-4 bg-indigo-600 text-white rounded-3xl">Далее →</button>
-                        </div>
-                    </div>
-                    <div id="step3" class="step">
-                        <h2 class="text-3xl font-semibold mb-6">3. Второй AR Маркер</h2>
-                        <div class="ar-container relative">
-                            <a-scene embedded arjs="sourceType: webcam;">
-                                <a-marker type="pattern" url="${markerUrl}">
-                                    <a-sphere position="0 0.8 0" radius="1" material="color: #ec4899"></a-sphere>
-                                </a-marker>
-                                <a-entity camera></a-entity>
-                            </a-scene>
-                            <div class="ar-instruction">Наведите камеру телефона на этот экран</div>
-                        </div>
-                        <div class="flex gap-4 mt-8">
-                            <button onclick="prevStep()" class="px-8 py-4 border rounded-3xl">← Назад</button>
-                            <button onclick="nextStep()" class="px-8 py-4 bg-indigo-600 text-white rounded-3xl">Далее →</button>
-                        </div>
-                    </div>
-                    <div id="step4" class="step">
-                        <h2 class="text-3xl font-semibold mb-6">4. Ваши впечатления</h2>
-                        <textarea class="w-full h-40 border rounded-2xl p-6" placeholder="Какой герой вам понравился больше всего?"></textarea>
-                        <div class="flex gap-4 mt-8">
-                            <button onclick="prevStep()" class="px-8 py-4 border rounded-3xl">← Назад</button>
-                            <button onclick="nextStep()" class="px-8 py-4 bg-indigo-600 text-white rounded-3xl">Завершить урок</button>
-                        </div>
-                    </div>
-                    <div id="step5" class="step text-center py-20">
-                        <h2 class="text-4xl font-bold text-green-600 mb-6">🎉 Урок завершён!</h2>
-                        <button onclick="closeLesson()" class="px-10 py-5 bg-indigo-600 text-white rounded-3xl">Вернуться к другим урокам</button>
-                    </div>`;
-            }
-
-            document.getElementById('lessonContent').innerHTML = html;
-            showStep(1);
-        }
-
-        function showStep(step) {
-            document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
-            const el = document.getElementById('step' + step);
-            if (el) el.classList.add('active');
-        }
-
-        function nextStep() {
-            const total = lessons[currentLesson].totalSteps;
-            if (currentStep < total) {
-                currentStep++;
-                updateProgress();
-                showStep(currentStep);
-            }
-        }
-
-        function prevStep() {
-            if (currentStep > 1) {
-                currentStep--;
-                updateProgress();
-                showStep(currentStep);
-            }
-        }
-
-        function updateProgress() {
-            const percent = Math.round(((currentStep - 1) / lessons[currentLesson].totalSteps) * 100);
-            document.getElementById('progressBar').style.width = percent + '%';
-            document.getElementById('progressText').textContent = percent + '%';
-        }
-    </script>
 </body>
 </html>

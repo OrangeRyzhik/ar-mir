@@ -10,12 +10,23 @@
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
         body { font-family: 'Inter', sans-serif; }
         .title-font { font-family: 'Space Grotesk', sans-serif; }
+        
+        .hero-examples {
+            background: linear-gradient(135deg, #f97316 0%, #ec4899 50%, #8b5cf6 100%);
+        }
+        .example-card {
+            transition: all 0.3s ease;
+        }
+        .example-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 30px -12px rgba(0, 0, 0, 0.2);
+        }
     </style>
 </head>
 <body class="bg-gray-50">
 
-    <!-- NAV -->
-    <nav class="bg-white border-b sticky top-0 z-50">
+    <!-- NAVIGATION -->
+    <nav class="bg-white border-b sticky top-0 z-50 shadow-sm">
         <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
             <div class="flex items-center gap-3">
                 <div class="w-11 h-11 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-3xl flex items-center justify-center text-3xl text-white">👾</div>
@@ -32,18 +43,176 @@
         </div>
     </nav>
 
-    <div class="max-w-6xl mx-auto px-6 py-20">
-        <h1 class="title-font text-5xl font-bold text-center mb-16">Примеры ученических работ</h1>
-        <div class="grid md:grid-cols-3 gap-8">
-            <div class="bg-white rounded-3xl overflow-hidden">
-                <img src="https://picsum.photos/id/201/600/400" class="w-full">
-                <div class="p-5">Виртуальный музей динозавров</div>
+    <!-- Hero секция -->
+    <section class="hero-examples text-white py-24">
+        <div class="max-w-6xl mx-auto px-6 text-center">
+            <div class="inline-flex items-center gap-3 bg-white/20 backdrop-blur-md px-6 py-3 rounded-3xl mb-6">
+                <i class="fas fa-globe text-2xl"></i>
+                <span class="font-semibold">Вдохновляющие проекты</span>
             </div>
-            <div class="bg-white rounded-3xl overflow-hidden">
-                <img src="https://picsum.photos/id/237/600/400" class="w-full">
-                <div class="p-5">AR-учебник по биологии</div>
+            <h1 class="title-font text-5xl md:text-6xl font-bold mb-6">Примеры AR-сайтов со всего мира</h1>
+            <p class="text-xl text-white/90 max-w-3xl mx-auto">
+                Посмотрите, как дополненная реальность уже сегодня меняет образование, культуру и повседневную жизнь.
+            </p>
+        </div>
+    </section>
+
+    <!-- Основной контент -->
+    <div class="max-w-6xl mx-auto px-6 py-16">
+
+        <!-- Введение -->
+        <div class="text-center mb-16">
+            <h2 class="text-3xl font-bold mb-4">Интересные проекты в сфере AR</h2>
+            <p class="text-gray-600 text-lg max-w-3xl mx-auto">
+                Мы собрали несколько ярких примеров сайтов и приложений, которые активно используют дополненную реальность. 
+                Они показывают, насколько широки возможности этой технологии — от образования до развлечений.
+            </p>
+        </div>
+
+        <!-- Сетка примеров -->
+        <div class="grid md:grid-cols-2 gap-10">
+            
+            <!-- Пример 1: Google Arts & Culture -->
+            <div class="example-card bg-white rounded-3xl shadow-xl overflow-hidden">
+                <img src="https://images.pexels.com/photos/7856330/pexels-photo-7856330.jpeg?w=800&h=500&fit=crop" 
+                     alt="Google Arts & Culture AR" 
+                     class="w-full h-56 object-cover">
+                <div class="p-6">
+                    <div class="flex items-center gap-2 mb-3">
+                        <span class="text-3xl">🎨</span>
+                        <h3 class="text-2xl font-bold">Google Arts & Culture</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4 leading-relaxed">
+                        Проект Google, который позволяет исследовать мировое искусство и культурное наследие с помощью AR. 
+                        Вы можете “примерить” знаменитые картины, рассмотреть 3D-модели древних артефактов или 
+                        совершить виртуальную экскурсию по музеям прямо из дома.
+                    </p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm text-indigo-600 bg-indigo-50 px-3 py-1 rounded-full">Образование / Культура</span>
+                        <a href="https://artsandculture.google.com/" target="_blank" 
+                           class="text-indigo-600 font-semibold hover:text-indigo-800 transition">
+                            Посетить сайт →
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Пример 2: IKEA Place -->
+            <div class="example-card bg-white rounded-3xl shadow-xl overflow-hidden">
+                <img src="https://images.pexels.com/photos/5705090/pexels-photo-5705090.jpeg?w=800&h=500&fit=crop" 
+                     alt="IKEA Place AR" 
+                     class="w-full h-56 object-cover">
+                <div class="p-6">
+                    <div class="flex items-center gap-2 mb-3">
+                        <span class="text-3xl">🛋️</span>
+                        <h3 class="text-2xl font-bold">IKEA Place</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4 leading-relaxed">
+                        Приложение от IKEA, которое с помощью AR позволяет «примерить» мебель в своей квартире. 
+                        Просто наведите камеру на пустое место, и предмет мебели появится в реальном размере — 
+                        можно оценить, как он впишется в интерьер.
+                    </p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm text-indigo-600 bg-indigo-50 px-3 py-1 rounded-full">Ритейл / Дизайн</span>
+                        <a href="https://www.ikea.com/" target="_blank" 
+                           class="text-indigo-600 font-semibold hover:text-indigo-800 transition">
+                            Узнать больше →
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Пример 3: Pokemon GO -->
+            <div class="example-card bg-white rounded-3xl shadow-xl overflow-hidden">
+                <img src="https://images.pexels.com/photos/8302660/pexels-photo-8302660.jpeg?w=800&h=500&fit=crop" 
+                     alt="Pokemon GO AR" 
+                     class="w-full h-56 object-cover">
+                <div class="p-6">
+                    <div class="flex items-center gap-2 mb-3">
+                        <span class="text-3xl">🐉</span>
+                        <h3 class="text-2xl font-bold">Pokémon GO</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4 leading-relaxed">
+                        Знаменитая игра, которая объединяет реальный мир с виртуальными покемонами. 
+                        Используя GPS и камеру телефона, игроки могут «ловить» покемонов в парках, на улицах и в других реальных местах. 
+                        Это один из самых ярких примеров массового использования AR.
+                    </p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm text-indigo-600 bg-indigo-50 px-3 py-1 rounded-full">Игры / Развлечения</span>
+                        <a href="https://pokemongolive.com/" target="_blank" 
+                           class="text-indigo-600 font-semibold hover:text-indigo-800 transition">
+                            Играть →
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Пример 4: Michelob ULTRA Yosemite Portal -->
+            <div class="example-card bg-white rounded-3xl shadow-xl overflow-hidden">
+                <img src="https://images.pexels.com/photos/2911532/pexels-photo-2911532.jpeg?w=800&h=500&fit=crop" 
+                     alt="Michelob ULTRA AR Portal" 
+                     class="w-full h-56 object-cover">
+                <div class="p-6">
+                    <div class="flex items-center gap-2 mb-3">
+                        <span class="text-3xl">🏔️</span>
+                        <h3 class="text-2xl font-bold">Michelob ULTRA Yosemite Portal</h3>
+                    </div>
+                    <p class="text-gray-600 mb-4 leading-relaxed">
+                        Маркетинговый AR-проект, который переносит пользователей в живописный национальный парк Йосемити. 
+                        С помощью веб-технологий (без установки приложений) можно оказаться посреди горного пейзажа и насладиться красотами природы[reference:0].
+                    </p>
+                    <div class="flex justify-between items-center">
+                        <span class="text-sm text-indigo-600 bg-indigo-50 px-3 py-1 rounded-full">Маркетинг / Туризм</span>
+                        <a href="https://www.michelobultra.com/" target="_blank" 
+                           class="text-indigo-600 font-semibold hover:text-indigo-800 transition">
+                            Открыть портал →
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
+
+        <!-- Дополнительный блок с AR-проектами учеников -->
+        <div class="mt-24 bg-gradient-to-r from-indigo-50 to-purple-50 rounded-3xl p-10">
+            <div class="text-center mb-8">
+                <h2 class="text-3xl font-bold mb-4">✨ Проекты наших учеников</h2>
+                <p class="text-gray-600 text-lg max-w-2xl mx-auto">
+                    В рамках уроков ребята создают собственные AR-проекты — от 3D-моделей животных до интерактивных карт.
+                </p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="bg-white rounded-2xl p-5 text-center shadow">
+                    <div class="text-5xl mb-3">🦖</div>
+                    <h3 class="font-semibold">3D-динозавр в комнате</h3>
+                    <p class="text-sm text-gray-500 mt-1">Ученик 6 класса, г. Москва</p>
+                </div>
+                <div class="bg-white rounded-2xl p-5 text-center shadow">
+                    <div class="text-5xl mb-3">🗺️</div>
+                    <h3 class="font-semibold">Интерактивная карта мира</h3>
+                    <p class="text-sm text-gray-500 mt-1">Ученица 5 класса, г. Казань</p>
+                </div>
+                <div class="bg-white rounded-2xl p-5 text-center shadow">
+                    <div class="text-5xl mb-3">⚛️</div>
+                    <h3 class="font-semibold">Строение атома в AR</h3>
+                    <p class="text-sm text-gray-500 mt-1">Проект команды 6 класса</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Призыв к действию -->
+        <div class="text-center mt-16">
+            <h2 class="text-3xl font-bold mb-4">Хотите создать свой AR-проект?</h2>
+            <p class="text-gray-600 text-lg mb-8">Присоединяйтесь к нашим урокам и начните творить уже сегодня!</p>
+            <a href="lessons.html" class="inline-block px-10 py-4 bg-indigo-600 text-white rounded-3xl font-semibold text-lg hover:bg-indigo-700 transition transform hover:scale-105">
+                Перейти к урокам
+            </a>
+        </div>
     </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12 text-center mt-12">
+        <p>© 2026 AR Мир — образовательный проект для 5–6 классов</p>
+    </footer>
+
 </body>
 </html>

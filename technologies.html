@@ -10,12 +10,22 @@
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
         body { font-family: 'Inter', sans-serif; }
         .title-font { font-family: 'Space Grotesk', sans-serif; }
+        
+        .hero-tech {
+            background: linear-gradient(135deg, #0f172a 0%, #1e1b4b 50%, #312e81 100%);
+        }
+        .tech-card {
+            transition: all 0.3s ease;
+        }
+        .tech-card:hover {
+            transform: translateY(-6px);
+        }
     </style>
 </head>
 <body class="bg-gray-50">
 
-    <!-- NAV -->
-    <nav class="bg-white border-b sticky top-0 z-50">
+    <!-- NAVIGATION -->
+    <nav class="bg-white border-b sticky top-0 z-50 shadow-sm">
         <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
             <div class="flex items-center gap-3">
                 <div class="w-11 h-11 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-3xl flex items-center justify-center text-3xl text-white">👾</div>
@@ -32,27 +42,131 @@
         </div>
     </nav>
 
-    <div class="max-w-6xl mx-auto px-6 py-20">
-        <h1 class="title-font text-5xl font-bold text-center mb-16">Технологии дополненной реальности</h1>
-        
-        <div class="grid md:grid-cols-2 gap-10">
-            <div class="bg-white p-8 rounded-3xl shadow">
-                <h3 class="text-2xl font-semibold mb-4">AR.js + A-Frame</h3>
-                <p class="text-gray-600">Самый простой способ запустить AR прямо в браузере без установки приложений.</p>
+    <!-- Hero секция -->
+    <section class="hero-tech text-white py-24">
+        <div class="max-w-6xl mx-auto px-6 text-center">
+            <div class="inline-flex items-center gap-3 bg-white/20 backdrop-blur-md px-6 py-3 rounded-3xl mb-6">
+                <i class="fas fa-vr-cardboard text-2xl"></i>
+                <span class="font-semibold">Технологии будущего</span>
             </div>
-            <div class="bg-white p-8 rounded-3xl shadow">
-                <h3 class="text-2xl font-semibold mb-4">CoSpaces Edu</h3>
-                <p class="text-gray-600">Удобная платформа для создания 3D-сцен и AR-проектов без программирования.</p>
+            <h1 class="title-font text-5xl md:text-6xl font-bold mb-6">Технологии дополненной реальности</h1>
+            <p class="text-xl text-white/90 max-w-3xl mx-auto">
+                Узнайте, как работает AR, какие инструменты мы используем и почему это меняет образование.
+            </p>
+        </div>
+    </section>
+
+    <!-- Основной контент -->
+    <div class="max-w-6xl mx-auto px-6 py-16">
+
+        <!-- Что такое AR? -->
+        <div class="grid md:grid-cols-2 gap-12 items-center mb-20">
+            <div>
+                <h2 class="text-3xl font-bold mb-4">Что такое дополненная реальность (AR)?</h2>
+                <p class="text-gray-700 text-lg leading-relaxed mb-4">
+                    <span class="font-semibold text-indigo-600">Дополненная реальность (Augmented Reality, AR)</span> — это технология, которая 
+                    накладывает цифровые объекты (3D-модели, текст, анимацию) на изображение реального мира через камеру смартфона, планшета или AR-очков.
+                </p>
+                <p class="text-gray-700 text-lg leading-relaxed">
+                    В отличие от виртуальной реальности (VR), которая полностью погружает вас в искусственный мир, AR лишь <span class="font-semibold">дополняет</span> окружающую среду 
+                    полезной или увлекательной информацией. Примеры: наведение телефона на маркер, и появляется 3D-модель сердца; или съёмка фильтра в Instagram.
+                </p>
             </div>
-            <div class="bg-white p-8 rounded-3xl shadow">
-                <h3 class="text-2xl font-semibold mb-4">Unity + Vuforia</h3>
-                <p class="text-gray-600">Профессиональный уровень для продвинутых проектов.</p>
-            </div>
-            <div class="bg-white p-8 rounded-3xl shadow">
-                <h3 class="text-2xl font-semibold mb-4">Google ARCore / Apple ARKit</h3>
-                <p class="text-gray-600">Мобильные технологии для создания приложений на смартфонах.</p>
+            <div class="rounded-3xl overflow-hidden shadow-xl">
+                <img src="https://images.pexels.com/photos/7915285/pexels-photo-7915285.jpeg?w=800&h=500&fit=crop" 
+                     alt="Дополненная реальность на смартфоне" 
+                     class="w-full h-72 object-cover">
             </div>
         </div>
+
+        <!-- Как работает AR (простое объяснение) -->
+        <div class="bg-white rounded-3xl shadow-xl p-10 mb-20">
+            <h2 class="text-3xl font-bold text-center mb-8">Как работает дополненная реальность?</h2>
+            <div class="grid md:grid-cols-3 gap-8 text-center">
+                <div class="p-5">
+                    <div class="text-5xl mb-4">📷</div>
+                    <h3 class="text-xl font-semibold mb-2">1. Камера захватывает реальность</h3>
+                    <p class="text-gray-600">Телефон видит то, что находится перед ним (маркер, поверхность, лицо).</p>
+                </div>
+                <div class="p-5">
+                    <div class="text-5xl mb-4">🧠</div>
+                    <h3 class="text-xl font-semibold mb-2">2. Программа анализирует изображение</h3>
+                    <p class="text-gray-600">Система распознаёт маркер или плоскость, вычисляет положение и угол наклона.</p>
+                </div>
+                <div class="p-5">
+                    <div class="text-5xl mb-4">✨</div>
+                    <h3 class="text-xl font-semibold mb-2">3. Наложение 3D-объекта</h3>
+                    <p class="text-gray-600">В нужное место на экране «рисуется» 3D-модель, которая двигается вместе с камерой.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- AR.js – главная технология сайта -->
+        <div class="grid md:grid-cols-2 gap-12 items-center mb-20">
+            <div class="order-2 md:order-1">
+                <img src="https://images.pexels.com/photos/276125/pexels-photo-276125.jpeg?w=800&h=500&fit=crop" 
+                     alt="Код на экране ноутбука" 
+                     class="rounded-3xl shadow-xl w-full">
+            </div>
+            <div class="order-1 md:order-2">
+                <h2 class="text-3xl font-bold mb-4">AR.js — сердце наших уроков</h2>
+                <p class="text-gray-700 text-lg leading-relaxed mb-4">
+                    <span class="font-semibold text-indigo-600">AR.js</span> — это мощная JavaScript-библиотека, которая позволяет запускать AR-сцены прямо в веб-браузере, 
+                    без установки приложений. Она работает на любом современном смартфоне или компьютере с камерой.
+                </p>
+                <ul class="space-y-3 text-gray-700">
+                    <li class="flex gap-2"><span class="text-indigo-600">✅</span> Бесплатно и открыто</li>
+                    <li class="flex gap-2"><span class="text-indigo-600">✅</span> Не требует скачивания приложений</li>
+                    <li class="flex gap-2"><span class="text-indigo-600">✅</span> Работает с обычными маркерами (Pattern)</li>
+                    <li class="flex gap-2"><span class="text-indigo-600">✅</span> Поддерживает 3D-модели через A-Frame</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Другие технологии (список) -->
+        <div class="bg-white rounded-3xl shadow-xl p-10 mb-20">
+            <h2 class="text-3xl font-bold text-center mb-8">Инструменты, которые мы используем</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="tech-card bg-gradient-to-br from-slate-50 to-gray-100 p-5 rounded-2xl text-center">
+                    <div class="text-5xl mb-3">🔷</div>
+                    <h3 class="font-bold text-xl">AR.js</h3>
+                    <p class="text-sm text-gray-600 mt-2">Браузерный AR-движок</p>
+                </div>
+                <div class="tech-card bg-gradient-to-br from-slate-50 to-gray-100 p-5 rounded-2xl text-center">
+                    <div class="text-5xl mb-3">🌐</div>
+                    <h3 class="font-bold text-xl">A-Frame</h3>
+                    <p class="text-sm text-gray-600 mt-2">3D-сцены и модели</p>
+                </div>
+                <div class="tech-card bg-gradient-to-br from-slate-50 to-gray-100 p-5 rounded-2xl text-center">
+                    <div class="text-5xl mb-3">🧩</div>
+                    <h3 class="font-bold text-xl">CoSpaces Edu</h3>
+                    <p class="text-sm text-gray-600 mt-2">Создание AR без кода</p>
+                </div>
+                <div class="tech-card bg-gradient-to-br from-slate-50 to-gray-100 p-5 rounded-2xl text-center">
+                    <div class="text-5xl mb-3">📱</div>
+                    <h3 class="font-bold text-xl">ARCore / ARKit</h3>
+                    <p class="text-sm text-gray-600 mt-2">Мобильные AR-платформы</p>
+                </div>
+            </div>
+            <p class="text-center text-gray-500 mt-8 text-sm">
+                В наших уроках мы используем AR.js + A-Frame, поэтому вам не нужно ничего устанавливать — достаточно открыть страницу на телефоне и навести камеру на маркер.
+            </p>
+        </div>
+
+        <!-- Заключение -->
+        <div class="text-center">
+            <h2 class="text-3xl font-bold mb-4">Хотите попробовать сами?</h2>
+            <p class="text-gray-600 text-lg mb-8">Перейдите в раздел уроков и начните взаимодействовать с AR прямо сейчас.</p>
+            <a href="lessons.html" class="inline-block px-10 py-4 bg-indigo-600 text-white rounded-3xl font-semibold text-lg hover:bg-indigo-700 transition transform hover:scale-105">
+                Перейти к урокам
+            </a>
+        </div>
     </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12 text-center mt-12">
+        <p>© 2026 AR Мир — образовательный проект для 5–6 классов</p>
+    </footer>
+
 </body>
 </html>

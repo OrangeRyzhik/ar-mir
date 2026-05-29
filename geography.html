@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>География - AR Мир</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        .title-font { font-family: 'Space Grotesk', sans-serif; }
+        
+        .hero-subject {
+            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+        }
+        
+        .lesson-card {
+            transition: all 0.3s ease;
+        }
+        .lesson-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <!-- Навигация -->
+    <nav class="bg-white border-b sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <div class="w-11 h-11 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-3xl flex items-center justify-center text-3xl text-white">👾</div>
+                <span class="title-font text-3xl font-bold text-indigo-600">AR Мир</span>
+            </div>
+            <a href="lessons.html" class="text-indigo-600 font-medium">← Все предметы</a>
+        </div>
+    </nav>
+
+    <!-- Hero секция предмета -->
+    <section class="hero-subject text-white py-20">
+        <div class="max-w-6xl mx-auto px-6 text-center">
+            <div class="inline-flex items-center gap-3 bg-white/20 backdrop-blur-md px-6 py-2 rounded-full mb-6">
+                <span class="text-4xl">🌍</span>
+                <span class="font-semibold text-lg">География</span>
+            </div>
+            <h1 class="title-font text-5xl md:text-6xl font-bold mb-4">Путешествие по Земле в AR</h1>
+            <p class="text-xl text-white/90 max-w-2xl mx-auto">
+                Изучай горы, реки, континенты и природные явления с помощью дополненной реальности
+            </p>
+        </div>
+    </section>
+
+    <div class="max-w-6xl mx-auto px-6 py-12">
+        <!-- Общая шкала прогресса -->
+        <div class="mb-12 bg-white rounded-3xl p-6 shadow">
+            <div class="flex justify-between items-center mb-3">
+                <span class="font-medium text-lg">Прогресс по Географии</span>
+                <span id="subjectProgress" class="text-2xl font-bold text-indigo-600">0%</span>
+            </div>
+            <div class="h-4 bg-gray-100 rounded-full overflow-hidden">
+                <div id="subjectBar" class="h-4 bg-gradient-to-r from-indigo-500 to-blue-600 rounded-full w-0 transition-all"></div>
+            </div>
+        </div>
+
+        <!-- Уроки -->
+        <h2 class="text-3xl font-semibold mb-8">Уроки по Географии</h2>
+        
+        <div class="grid md:grid-cols-2 gap-8">
+            <!-- Урок 1 -->
+            <div onclick="window.location.href='lesson-geography-1.html'" 
+                 class="lesson-card bg-white rounded-3xl shadow-xl overflow-hidden cursor-pointer">
+                <div class="h-56 bg-gradient-to-br from-blue-500 to-cyan-400 flex items-center justify-center text-7xl">🌍</div>
+                <div class="p-8">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h3 class="text-2xl font-semibold mb-2">Урок 1. Введение в AR-географию</h3>
+                            <p class="text-gray-600">Что такое дополненная реальность и как она помогает изучать географию</p>
+                        </div>
+                        <span class="text-sm bg-blue-100 text-blue-700 px-4 py-2 rounded-3xl">Теория</span>
+                    </div>
+                    <div class="mt-6 text-sm text-gray-500">Прогресс: <span id="p1" class="font-medium">0%</span></div>
+                </div>
+            </div>
+
+            <!-- Урок 2 -->
+            <div onclick="window.location.href='lesson-geography-2.html'" 
+                 class="lesson-card bg-white rounded-3xl shadow-xl overflow-hidden cursor-pointer">
+                <div class="h-56 bg-gradient-to-br from-emerald-500 to-teal-400 flex items-center justify-center text-7xl">🏔️</div>
+                <div class="p-8">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h3 class="text-2xl font-semibold mb-2">Урок 2. Великие горы мира</h3>
+                            <p class="text-gray-600">Интерактивное путешествие по высочайшим вершинам с AR</p>
+                        </div>
+                        <span class="text-sm bg-emerald-100 text-emerald-700 px-4 py-2 rounded-3xl">AR + Практика</span>
+                    </div>
+                    <div class="mt-6 text-sm text-gray-500">Прогресс: <span id="p2" class="font-medium">0%</span></div>
+                </div>
+            </div>
+
+            <!-- Урок 3 -->
+            <div onclick="window.location.href='lesson-geography-3.html'" 
+                 class="lesson-card bg-white rounded-3xl shadow-xl overflow-hidden cursor-pointer">
+                <div class="h-56 bg-gradient-to-br from-amber-500 to-orange-400 flex items-center justify-center text-7xl">🌊</div>
+                <div class="p-8">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h3 class="text-2xl font-semibold mb-2">Урок 3. Реки и океаны</h3>
+                            <p class="text-gray-600">Изучение водных ресурсов планеты с помощью дополненной реальности</p>
+                        </div>
+                        <span class="text-sm bg-orange-100 text-orange-700 px-4 py-2 rounded-3xl">AR + Практика</span>
+                    </div>
+                    <div class="mt-6 text-sm text-gray-500">Прогресс: <span id="p3" class="font-medium">0%</span></div>
+                </div>
+            </div>
+
+            <!-- Урок 4 -->
+            <div onclick="window.location.href='lesson-geography-4.html'" 
+                 class="lesson-card bg-white rounded-3xl shadow-xl overflow-hidden cursor-pointer">
+                <div class="h-56 bg-gradient-to-br from-purple-600 to-violet-500 flex items-center justify-center text-7xl">📝</div>
+                <div class="p-8">
+                    <div class="flex justify-between items-start">
+                        <div>
+                            <h3 class="text-2xl font-semibold mb-2">Урок 4. Итоговый тест</h3>
+                            <p class="text-gray-600">Проверь свои знания по пройденному материалу</p>
+                        </div>
+                        <span class="text-sm bg-purple-100 text-purple-700 px-4 py-2 rounded-3xl">Контроль</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Загрузка общей прогресса
+        function loadProgress() {
+            let completed = 0;
+            for (let i = 1; i <= 4; i++) {
+                if (localStorage.getItem(`geo_lesson_${i}_completed`) === "true") completed++;
+            }
+            const percent = Math.round((completed / 4) * 100);
+            document.getElementById('subjectBar').style.width = percent + '%';
+            document.getElementById('subjectProgress').textContent = percent + '%';
+        }
+
+        window.onload = loadProgress;
+    </script>
+</body>
+</html>

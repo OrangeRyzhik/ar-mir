@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Урок 1 - Введение в литературу</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        .title-font { font-family: 'Space Grotesk', sans-serif; }
+        
+        .lesson-hero {
+            background: linear-gradient(135deg, #6b21a8 0%, #c026d3 100%);
+        }
+        .content-text {
+            font-size: 1.12rem;
+            line-height: 1.85;
+        }
+        .step { display: none; }
+        .step.active { display: block; }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <nav class="bg-white border-b sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-6 py-5 flex justify-between items-center">
+            <a href="literature.html" class="flex items-center gap-2 text-purple-700 font-medium">
+                ← Назад к Литературе
+            </a>
+            <span class="title-font text-2xl font-bold text-purple-700">AR Мир</span>
+        </div>
+    </nav>
+
+    <section class="lesson-hero text-white py-16">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <div class="inline-flex items-center gap-3 bg-white/20 backdrop-blur-md px-6 py-3 rounded-3xl mb-6">
+                <span class="text-4xl">📖</span>
+                <span class="font-semibold">Урок 1</span>
+            </div>
+            <h1 class="title-font text-5xl md:text-6xl font-bold leading-tight mb-6">
+                Введение в литературу
+            </h1>
+        </div>
+    </section>
+
+    <div class="max-w-4xl mx-auto px-6 py-12">
+        <!-- Прогресс -->
+        <div class="mb-12">
+            <div class="flex justify-between text-sm font-medium mb-3">
+                <span>Прогресс урока</span>
+                <span id="progressText">0%</span>
+            </div>
+            <div class="h-3 bg-gray-200 rounded-full overflow-hidden">
+                <div id="progressBar" class="h-3 bg-gradient-to-r from-purple-600 to-pink-500 rounded-full w-0 transition-all"></div>
+            </div>
+        </div>
+
+        <div id="lessonContent" class="bg-white rounded-3xl shadow-xl p-10 md:p-16">
+
+            <!-- Шаг 1 -->
+            <div id="step1" class="step active">
+                <h2 class="text-3xl font-semibold mb-6">Что такое литература?</h2>
+                <p class="content-text text-gray-700">
+                    Литература — это искусство слова. В широком смысле так называют все письменные тексты, 
+                    но чаще всего говорят о художественной литературе: рассказах, повестях, романах, стихах и пьесах. 
+                    Через книги писатели передают свои мысли, чувства и идеи.
+                </p>
+                <button onclick="nextStep()" class="mt-12 px-10 py-4 bg-purple-700 text-white rounded-3xl font-semibold text-lg">
+                    Продолжить →
+                </button>
+            </div>
+
+            <!-- Шаг 2 -->
+            <div id="step2" class="step">
+                <h2 class="text-3xl font-semibold mb-6">Зачем нужно читать книги?</h2>
+                <div class="grid md:grid-cols-2 gap-6 mt-8">
+                    <div class="bg-purple-50 p-6 rounded-2xl">
+                        <p class="font-semibold">Развивают воображение</p>
+                        <p class="text-gray-600 mt-2">Книги помогают создавать целые миры в голове</p>
+                    </div>
+                    <div class="bg-purple-50 p-6 rounded-2xl">
+                        <p class="font-semibold">Обогащают речь и словарный запас</p>
+                        <p class="text-gray-600 mt-2">Вы учитесь красиво и точно выражать мысли</p>
+                    </div>
+                    <div class="bg-purple-50 p-6 rounded-2xl">
+                        <p class="font-semibold">Учат сопереживать</p>
+                        <p class="text-gray-600 mt-2">Вы понимаете чувства других людей</p>
+                    </div>
+                    <div class="bg-purple-50 p-6 rounded-2xl">
+                        <p class="font-semibold">Дают знания и опыт</p>
+                        <p class="text-gray-600 mt-2">Из книг можно узнать почти всё на свете</p>
+                    </div>
+                </div>
+                <div class="flex gap-4 mt-12">
+                    <button onclick="prevStep()" class="px-8 py-4 border rounded-3xl">← Назад</button>
+                    <button onclick="nextStep()" class="px-8 py-4 bg-purple-700 text-white rounded-3xl">Далее →</button>
+                </div>
+            </div>
+
+            <!-- Шаг 3 -->
+            <div id="step3" class="step">
+                <h2 class="text-3xl font-semibold mb-6">Какие бывают жанры литературы?</h2>
+                <div class="grid md:grid-cols-2 gap-6 mt-8">
+                    <div class="bg-purple-50 p-5 rounded-2xl">
+                        <p class="font-bold text-xl">📖 Эпос</p>
+                        <p class="text-gray-600">Рассказывает о событиях и героях (роман, повесть, рассказ)</p>
+                    </div>
+                    <div class="bg-purple-50 p-5 rounded-2xl">
+                        <p class="font-bold text-xl">🎭 Лирика</p>
+                        <p class="text-gray-600">Выражает чувства и переживания (стихи)</p>
+                    </div>
+                    <div class="bg-purple-50 p-5 rounded-2xl">
+                        <p class="font-bold text-xl">🎭 Драма</p>
+                        <p class="text-gray-600">Предназначена для постановки на сцене (пьесы)</p>
+                    </div>
+                    <div class="bg-purple-50 p-5 rounded-2xl">
+                        <p class="font-bold text-xl">🧙 Фольклор</p>
+                        <p class="text-gray-600">Народное творчество: сказки, былины, пословицы</p>
+                    </div>
+                </div>
+                <div class="flex gap-4 mt-12">
+                    <button onclick="prevStep()" class="px-8 py-4 border rounded-3xl">← Назад</button>
+                    <button onclick="nextStep()" class="px-8 py-4 bg-purple-700 text-white rounded-3xl">Далее →</button>
+                </div>
+            </div>
+
+            <!-- Шаг 4 -->
+            <div id="step4" class="step">
+                <h2 class="text-3xl font-semibold mb-6">Как читать книги с пользой?</h2>
+                <ul class="space-y-6 text-lg text-gray-700">
+                    <li class="flex gap-4">📌 Читайте регулярно, хотя бы 15–20 минут в день</li>
+                    <li class="flex gap-4">🧠 Обсуждайте прочитанное с друзьями или родителями</li>
+                    <li class="flex gap-4">📝 Записывайте интересные мысли и цитаты</li>
+                    <li class="flex gap-4">📚 Начинайте с тех книг, которые вам действительно нравятся</li>
+                </ul>
+                <div class="flex gap-4 mt-12">
+                    <button onclick="prevStep()" class="px-8 py-4 border rounded-3xl">← Назад</button>
+                    <button onclick="nextStep()" class="px-8 py-4 bg-purple-700 text-white rounded-3xl">Далее →</button>
+                </div>
+            </div>
+
+            <!-- Шаг 5 -->
+            <div id="step5" class="step">
+                <h2 class="text-3xl font-semibold mb-6">Литература в нашей жизни</h2>
+                <p class="content-text text-gray-700">
+                    Литература сопровождает человечество тысячи лет. Она помогает нам лучше понимать себя и других, 
+                    учит добру и справедливости. Даже в эпоху интернета и видео книги остаются важным источником знаний и вдохновения.
+                </p>
+                <button onclick="nextStep()" class="mt-12 px-10 py-4 bg-purple-700 text-white rounded-3xl font-semibold text-lg">
+                    Продолжить →
+                </button>
+            </div>
+
+            <!-- Шаг 6 -->
+            <div id="step6" class="step">
+                <h2 class="text-3xl font-semibold mb-6">Подведём итог</h2>
+                <p class="content-text text-gray-700">
+                    Сегодня вы узнали, что такое литература, зачем читать книги и какие бывают жанры. 
+                    Помните: чтение — это увлекательное приключение, которое доступно каждому!
+                </p>
+                <button onclick="completeLesson()" class="mt-12 px-10 py-4 bg-purple-700 text-white rounded-3xl font-semibold text-lg">
+                    Завершить урок
+                </button>
+            </div>
+
+            <!-- Поздравительный экран -->
+            <div id="congratulations" class="step text-center py-20 hidden">
+                <div class="text-7xl mb-8">🎉</div>
+                <h2 class="text-5xl font-bold text-purple-700 mb-4">Поздравляем!</h2>
+                <p class="text-2xl text-gray-700 mb-10">Вы успешно завершили первый урок по литературе!</p>
+                <button onclick="finishLesson()" 
+                        class="px-12 py-6 bg-gradient-to-r from-purple-600 to-pink-600 text-white text-xl font-semibold rounded-3xl">
+                    Вернуться к Литературе
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentStep = 1;
+        const totalSteps = 6;
+
+        function showStep(step) {
+            document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+            const el = document.getElementById('step' + step);
+            if (el) el.classList.add('active');
+        }
+
+        function updateProgress() {
+            const percent = Math.round((currentStep / totalSteps) * 100);
+            document.getElementById('progressBar').style.width = percent + '%';
+            document.getElementById('progressText').textContent = percent + '%';
+        }
+
+        function nextStep() {
+            if (currentStep < totalSteps) {
+                currentStep++;
+                updateProgress();
+                showStep(currentStep);
+            }
+        }
+
+        function prevStep() {
+            if (currentStep > 1) {
+                currentStep--;
+                updateProgress();
+                showStep(currentStep);
+            }
+        }
+
+        function completeLesson() {
+            document.getElementById('progressBar').style.width = '100%';
+            document.getElementById('progressText').textContent = '100%';
+
+            document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+            document.getElementById('congratulations').classList.add('active');
+
+            localStorage.setItem('literature_lesson_1_completed', 'true');
+        }
+
+        function finishLesson() {
+            window.location.href = 'literature.html';
+        }
+
+        window.onload = () => {
+            showStep(1);
+            updateProgress();
+        };
+    </script>
+</body>
+</html>
+```

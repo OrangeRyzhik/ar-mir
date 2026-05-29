@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Урок 1 - География</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        .title-font { font-family: 'Space Grotesk', sans-serif; }
+        
+        .lesson-hero {
+            background: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+        }
+        .content-text {
+            font-size: 1.12rem;
+            line-height: 1.85;
+        }
+        .step { display: none; }
+        .step.active { display: block; }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <nav class="bg-white border-b sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-6 py-5 flex justify-between items-center">
+            <a href="geography.html" class="flex items-center gap-2 text-indigo-600 font-medium">
+                ← Назад к Географии
+            </a>
+            <span class="title-font text-2xl font-bold text-indigo-600">AR Мир</span>
+        </div>
+    </nav>
+
+    <section class="lesson-hero text-white py-16">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <div class="inline-flex items-center gap-3 bg-white/20 backdrop-blur-md px-6 py-3 rounded-3xl mb-6">
+                <span class="text-4xl">🌍</span>
+                <span class="font-semibold">Урок 1</span>
+            </div>
+            <h1 class="title-font text-5xl md:text-6xl font-bold leading-tight mb-6">
+                Что такое география?
+            </h1>
+        </div>
+    </section>
+
+    <div class="max-w-4xl mx-auto px-6 py-12">
+        <!-- Прогресс -->
+        <div class="mb-12">
+            <div class="flex justify-between text-sm font-medium mb-3">
+                <span>Прогресс урока</span>
+                <span id="progressText">0%</span>
+            </div>
+            <div class="h-3 bg-gray-200 rounded-full overflow-hidden">
+                <div id="progressBar" class="h-3 bg-gradient-to-r from-blue-600 to-cyan-500 rounded-full w-0 transition-all"></div>
+            </div>
+        </div>
+
+        <div id="lessonContent" class="bg-white rounded-3xl shadow-xl p-10 md:p-16">
+
+            <!-- Шаг 1 -->
+            <div id="step1" class="step active">
+                <h2 class="text-3xl font-semibold mb-6">Что такое география?</h2>
+                <p class="content-text text-gray-700">
+                    География — это наука о Земле. В переводе с древнегреческого «гео» означает «Земля», а «графо» — «описываю». 
+                    Географы изучают нашу планету: где что находится, почему там именно так, и как всё взаимосвязано.
+                </p>
+                <button onclick="nextStep()" class="mt-12 px-10 py-4 bg-indigo-600 text-white rounded-3xl font-semibold text-lg">
+                    Продолжить →
+                </button>
+            </div>
+
+            <!-- Шаг 2 -->
+            <div id="step2" class="step">
+                <h2 class="text-3xl font-semibold mb-6">Какие вопросы изучает география?</h2>
+                <div class="grid md:grid-cols-2 gap-6 mt-8">
+                    <div class="bg-blue-50 p-6 rounded-2xl">
+                        <p class="font-semibold">Где это находится?</p>
+                        <p class="text-gray-600 mt-2">Где расположены горы, реки, страны и города?</p>
+                    </div>
+                    <div class="bg-blue-50 p-6 rounded-2xl">
+                        <p class="font-semibold">Почему это так?</p>
+                        <p class="text-gray-600 mt-2">Почему в разных частях Земли разный климат?</p>
+                    </div>
+                </div>
+                <div class="flex gap-4 mt-12">
+                    <button onclick="prevStep()" class="px-8 py-4 border rounded-3xl">← Назад</button>
+                    <button onclick="nextStep()" class="px-8 py-4 bg-indigo-600 text-white rounded-3xl">Далее →</button>
+                </div>
+            </div>
+
+            <!-- Шаг 3 -->
+            <div id="step3" class="step">
+                <h2 class="text-3xl font-semibold mb-6">Физическая география</h2>
+                <p class="content-text text-gray-700">
+                    Изучает природу Земли: материки и океаны, горы и равнины, климат, реки, почвы, растения и животных.
+                </p>
+                <div class="flex gap-4 mt-12">
+                    <button onclick="prevStep()" class="px-8 py-4 border rounded-3xl">← Назад</button>
+                    <button onclick="nextStep()" class="px-8 py-4 bg-indigo-600 text-white rounded-3xl">Далее →</button>
+                </div>
+            </div>
+
+            <!-- Шаг 4 -->
+            <div id="step4" class="step">
+                <h2 class="text-3xl font-semibold mb-6">Социальная и экономическая география</h2>
+                <p class="content-text text-gray-700">
+                    Изучает жизнь людей, страны, города, хозяйство и как люди взаимодействуют с природой.
+                </p>
+                <div class="flex gap-4 mt-12">
+                    <button onclick="prevStep()" class="px-8 py-4 border rounded-3xl">← Назад</button>
+                    <button onclick="nextStep()" class="px-8 py-4 bg-indigo-600 text-white rounded-3xl">Далее →</button>
+                </div>
+            </div>
+
+            <!-- Шаг 5 -->
+            <div id="step5" class="step">
+                <h2 class="text-3xl font-semibold mb-6">Почему важно изучать географию?</h2>
+                <ul class="space-y-6 text-lg text-gray-700">
+                    <li class="flex gap-4">🌍 Чтобы понимать, как устроен наш мир</li>
+                    <li class="flex gap-4">🌱 Чтобы беречь природу и ресурсы планеты</li>
+                    <li class="flex gap-4">🧭 Чтобы ориентироваться и путешествовать</li>
+                    <li class="flex gap-4">🤝 Чтобы лучше понимать другие страны и народы</li>
+                </ul>
+                <div class="flex gap-4 mt-12">
+                    <button onclick="prevStep()" class="px-8 py-4 border rounded-3xl">← Назад</button>
+                    <button onclick="nextStep()" class="px-8 py-4 bg-indigo-600 text-white rounded-3xl">Далее →</button>
+                </div>
+            </div>
+
+            <!-- Шаг 6 -->
+            <div id="step6" class="step">
+                <h2 class="text-3xl font-semibold mb-6">География в современном мире</h2>
+                <p class="content-text text-gray-700">
+                    Сегодня географы используют спутники, GPS, дроны и компьютерные программы. 
+                    География помогает предсказывать погоду, искать полезные ископаемые и решать экологические проблемы.
+                </p>
+                <button onclick="completeLesson()" class="mt-12 px-10 py-4 bg-indigo-600 text-white rounded-3xl font-semibold text-lg">
+                    Завершить урок
+                </button>
+            </div>
+
+            <!-- Поздравительный экран -->
+            <div id="congratulations" class="step text-center py-20 hidden">
+                <div class="text-7xl mb-8">🎉</div>
+                <h2 class="text-5xl font-bold text-green-600 mb-4">Поздравляем!</h2>
+                <p class="text-2xl text-gray-700 mb-10">Вы успешно завершили первый урок по географии!</p>
+                <button onclick="finishLesson()" 
+                        class="px-12 py-6 bg-gradient-to-r from-green-500 to-emerald-600 text-white text-xl font-semibold rounded-3xl">
+                    Вернуться к предмету
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentStep = 1;
+        const totalSteps = 6;
+
+        function showStep(step) {
+            document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+            const el = document.getElementById('step' + step);
+            if (el) el.classList.add('active');
+        }
+
+        function updateProgress() {
+            const percent = Math.round((currentStep / totalSteps) * 100);
+            document.getElementById('progressBar').style.width = percent + '%';
+            document.getElementById('progressText').textContent = percent + '%';
+        }
+
+        function nextStep() {
+            if (currentStep < totalSteps) {
+                currentStep++;
+                updateProgress();
+                showStep(currentStep);
+            }
+        }
+
+        function prevStep() {
+            if (currentStep > 1) {
+                currentStep--;
+                updateProgress();
+                showStep(currentStep);
+            }
+        }
+
+        function completeLesson() {
+            // Показываем поздравление
+            document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+            document.getElementById('congratulations').classList.add('active');
+            localStorage.setItem('geo_lesson_1_completed', 'true');
+        }
+
+        function finishLesson() {
+            window.location.href = 'geography.html';
+        }
+
+        window.onload = () => {
+            showStep(1);
+            updateProgress();
+        };
+    </script>
+</body>
+</html>

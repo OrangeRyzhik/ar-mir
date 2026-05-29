@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Урок 4 - Итоговый тест по Истории</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        .title-font { font-family: 'Space Grotesk', sans-serif; }
+        
+        .lesson-hero {
+            background: linear-gradient(135deg, #7c2d12 0%, #f59e0b 100%);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <nav class="bg-white border-b sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-6 py-5 flex justify-between items-center">
+            <a href="history.html" class="flex items-center gap-2 text-amber-700 font-medium">
+                ← Назад к Истории
+            </a>
+            <span class="title-font text-2xl font-bold text-amber-700">AR Мир</span>
+        </div>
+    </nav>
+
+    <section class="lesson-hero text-white py-16">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <div class="inline-flex items-center gap-3 bg-white/20 backdrop-blur-md px-6 py-3 rounded-3xl mb-6">
+                <span class="text-4xl">📝</span>
+                <span class="font-semibold">Урок 4</span>
+            </div>
+            <h1 class="title-font text-5xl md:text-6xl font-bold leading-tight mb-6">
+                Итоговый тест
+            </h1>
+            <p class="text-xl text-white/90">Проверь свои знания по истории</p>
+        </div>
+    </section>
+
+    <div class="max-w-4xl mx-auto px-6 py-12">
+        <div id="testContent"></div>
+
+        <!-- Результат теста -->
+        <div id="resultScreen" class="hidden text-center py-20">
+            <div class="text-7xl mb-8">🏆</div>
+            <h2 class="text-5xl font-bold text-amber-700 mb-4">Тест завершён!</h2>
+            <p id="resultText" class="text-3xl font-semibold mb-10"></p>
+            <button onclick="restartTest()" 
+                    class="px-12 py-6 bg-amber-700 text-white text-xl font-semibold rounded-3xl hover:bg-amber-800 transition">
+                Пройти тест заново
+            </button>
+            <button onclick="window.location.href='history.html'" 
+                    class="ml-4 px-12 py-6 bg-gray-200 text-gray-800 text-xl font-semibold rounded-3xl hover:bg-gray-300 transition">
+                Вернуться к Истории
+            </button>
+        </div>
+    </div>
+
+    <script>
+        const questions = [
+            {
+                q: "Что такое история?",
+                a: ["Наука о будущем", "Наука о прошлом человечества", "Наука о природе", "Наука о космосе"],
+                correct: 1
+            },
+            {
+                q: "Какой река была главной для Древнего Египта?",
+                a: ["Амазонка", "Нил", "Волга", "Дунай"],
+                correct: 1
+            },
+            {
+                q: "Для чего египтяне строили пирамиды?",
+                a: ["Как храмы", "Как гробницы фараонов", "Как школы", "Как крепости"],
+                correct: 1
+            },
+            {
+                q: "Что подарила миру Древняя Греция?",
+                a: ["Пирамиды", "Демократию", "Мумификацию", "Иероглифы"],
+                correct: 1
+            },
+            {
+                q: "Как назывался главный храм в Афинах?",
+                a: ["Парфенон", "Пирамида Хеопса", "Колизей", "Зиккурат"],
+                correct: 0
+            },
+            {
+                q: "Кто такие фараоны в Древнем Египте?",
+                a: ["Жрецы", "Правители, которых считали богами", "Воины", "Учёные"],
+                correct: 1
+            },
+            {
+                q: "Где проводились первые Олимпийские игры?",
+                a: ["В Египте", "В Древней Греции", "В Риме", "В Китае"],
+                correct: 1
+            },
+            {
+                q: "Зачем нужно изучать историю?",
+                a: ["Чтобы понимать настоящее и не повторять ошибки прошлого", "Только чтобы сдавать экзамены", "Чтобы учить даты", "Чтобы читать книги"],
+                correct: 0
+            }
+        ];
+
+        let currentQuestion = 0;
+        let score = 0;
+
+        function loadQuestion() {
+            const q = questions[currentQuestion];
+            let html = `
+                <div class="max-w-2xl mx-auto">
+                    <div class="text-center mb-10">
+                        <span class="text-sm font-medium text-amber-700">Вопрос ${currentQuestion + 1} из ${questions.length}</span>
+                    </div>
+                    <h2 class="text-3xl font-semibold mb-10 text-center">${q.q}</h2>
+                    <div class="grid gap-4">
+            `;
+
+            q.a.forEach((answer, index) => {
+                html += `
+                    <button onclick="selectAnswer(${index})" 
+                            class="answer-btn w-full text-left p-6 border-2 border-gray-200 rounded-2xl hover:border-amber-600 transition text-lg">
+                        ${answer}
+                    </button>
+                `;
+            });
+
+            html += `</div></div>`;
+            document.getElementById('testContent').innerHTML = html;
+        }
+
+        function selectAnswer(selectedIndex) {
+            const q = questions[currentQuestion];
+            if (selectedIndex === q.correct) score++;
+
+            currentQuestion++;
+
+            if (currentQuestion < questions.length) {
+                loadQuestion();
+            } else {
+                showResult();
+            }
+        }
+
+        function showResult() {
+            const percent = Math.round((score / questions.length) * 100);
+            
+            let message = "";
+            if (percent >= 90) message = "Отличный результат! 🌟";
+            else if (percent >= 70) message = "Хороший результат! 👍";
+            else if (percent >= 50) message = "Неплохо! Можно лучше 😊";
+            else message = "Рекомендуем повторить материал 📜";
+
+            document.getElementById('testContent').classList.add('hidden');
+            document.getElementById('resultScreen').classList.remove('hidden');
+            document.getElementById('resultText').innerHTML = `
+                Правильных ответов: <span class="text-4xl font-bold text-amber-700">${score}/${questions.length}</span><br>
+                ${percent}% — ${message}
+            `;
+
+            localStorage.setItem('history_lesson_4_completed', 'true');
+        }
+
+        function restartTest() {
+            currentQuestion = 0;
+            score = 0;
+            document.getElementById('testContent').classList.remove('hidden');
+            document.getElementById('resultScreen').classList.add('hidden');
+            loadQuestion();
+        }
+
+        window.onload = loadQuestion;
+    </script>
+</body>
+</html>

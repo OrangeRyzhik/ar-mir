@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Биология - AR Мир</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        .title-font { font-family: 'Space Grotesk', sans-serif; }
+        
+        .hero-subject {
+            background: linear-gradient(135deg, #166534 0%, #4ade80 100%);
+        }
+        .lesson-card {
+            transition: all 0.3s ease;
+        }
+        .lesson-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <nav class="bg-white border-b sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <div class="w-11 h-11 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-3xl flex items-center justify-center text-3xl text-white">🧬</div>
+                <span class="title-font text-3xl font-bold text-emerald-600">AR Мир</span>
+            </div>
+            <a href="lessons.html" class="text-emerald-600 font-medium">← Все предметы</a>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero-subject text-white py-20">
+        <div class="max-w-6xl mx-auto px-6 text-center">
+            <div class="inline-flex items-center gap-3 bg-white/20 backdrop-blur-md px-6 py-3 rounded-3xl mb-6">
+                <span class="text-4xl">🧬</span>
+                <span class="font-semibold text-lg">Биология</span>
+            </div>
+            <h1 class="title-font text-5xl md:text-6xl font-bold mb-4">Живой мир в AR</h1>
+            <p class="text-xl text-white/90 max-w-2xl mx-auto">
+                Изучай строение клетки, органы и живые организмы с помощью дополненной реальности
+            </p>
+        </div>
+    </section>
+
+    <div class="max-w-6xl mx-auto px-6 py-12">
+        <!-- Общая шкала прогресса -->
+        <div class="mb-12 bg-white rounded-3xl p-6 shadow">
+            <div class="flex justify-between items-center mb-3">
+                <span class="font-medium text-lg">Прогресс по Биологии</span>
+                <span id="subjectProgress" class="text-2xl font-bold text-emerald-600">0%</span>
+            </div>
+            <div class="h-4 bg-gray-100 rounded-full overflow-hidden">
+                <div id="subjectBar" class="h-4 bg-gradient-to-r from-emerald-500 to-teal-500 rounded-full w-0 transition-all"></div>
+            </div>
+        </div>
+
+        <!-- Уроки -->
+        <h2 class="text-3xl font-semibold mb-8">Уроки по Биологии</h2>
+        
+        <div class="grid md:grid-cols-2 gap-8">
+            <div onclick="window.location.href='lesson-biology-1.html'" class="lesson-card bg-white rounded-3xl shadow-xl overflow-hidden cursor-pointer">
+                <div class="h-56 bg-gradient-to-br from-emerald-500 to-teal-400 flex items-center justify-center text-7xl">🧬</div>
+                <div class="p-8">
+                    <h3 class="text-2xl font-semibold mb-2">Урок 1. Введение в биологию</h3>
+                    <p class="text-gray-600">Что изучает биология и почему это важно</p>
+                    <div class="mt-6 text-sm text-gray-500">Прогресс: <span id="p1">0%</span></div>
+                </div>
+            </div>
+
+            <div onclick="window.location.href='lesson-biology-2.html'" class="lesson-card bg-white rounded-3xl shadow-xl overflow-hidden cursor-pointer">
+                <div class="h-56 bg-gradient-to-br from-teal-500 to-cyan-400 flex items-center justify-center text-7xl">🔬</div>
+                <div class="p-8">
+                    <h3 class="text-2xl font-semibold mb-2">Урок 2. Строение клетки (AR)</h3>
+                    <p class="text-gray-600">Интерактивное изучение клетки</p>
+                    <div class="mt-6 text-sm text-gray-500">Прогресс: <span id="p2">0%</span></div>
+                </div>
+            </div>
+
+            <div onclick="window.location.href='lesson-biology-3.html'" class="lesson-card bg-white rounded-3xl shadow-xl overflow-hidden cursor-pointer">
+                <div class="h-56 bg-gradient-to-br from-cyan-500 to-sky-400 flex items-center justify-center text-7xl">🧠</div>
+                <div class="p-8">
+                    <h3 class="text-2xl font-semibold mb-2">Урок 3. Органы и системы организма (AR)</h3>
+                    <p class="text-gray-600">Как работают органы человека</p>
+                    <div class="mt-6 text-sm text-gray-500">Прогресс: <span id="p3">0%</span></div>
+                </div>
+            </div>
+
+            <div onclick="window.location.href='lesson-biology-4.html'" class="lesson-card bg-white rounded-3xl shadow-xl overflow-hidden cursor-pointer">
+                <div class="h-56 bg-gradient-to-br from-sky-500 to-blue-400 flex items-center justify-center text-7xl">📝</div>
+                <div class="p-8">
+                    <h3 class="text-2xl font-semibold mb-2">Урок 4. Итоговый тест</h3>
+                    <p class="text-gray-600">Проверка знаний</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function loadSubjectProgress() {
+            let completed = 0;
+            for (let i = 1; i <= 4; i++) {
+                if (localStorage.getItem(`bio_lesson_${i}_completed`) === "true") completed++;
+            }
+            const percent = Math.round((completed / 4) * 100);
+            document.getElementById('subjectBar').style.width = percent + '%';
+            document.getElementById('subjectProgress').textContent = percent + '%';
+        }
+
+        window.onload = loadSubjectProgress;
+    </script>
+</body>
+</html>

@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Урок 1 - Введение в историю</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        .title-font { font-family: 'Space Grotesk', sans-serif; }
+        
+        .lesson-hero {
+            background: linear-gradient(135deg, #7c2d12 0%, #f59e0b 100%);
+        }
+        .content-text {
+            font-size: 1.12rem;
+            line-height: 1.85;
+        }
+        .step { display: none; }
+        .step.active { display: block; }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <nav class="bg-white border-b sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-6 py-5 flex justify-between items-center">
+            <a href="history.html" class="flex items-center gap-2 text-amber-700 font-medium">
+                ← Назад к Истории
+            </a>
+            <span class="title-font text-2xl font-bold text-amber-700">AR Мир</span>
+        </div>
+    </nav>
+
+    <section class="lesson-hero text-white py-16">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <div class="inline-flex items-center gap-3 bg-white/20 backdrop-blur-md px-6 py-3 rounded-3xl mb-6">
+                <span class="text-4xl">📜</span>
+                <span class="font-semibold">Урок 1</span>
+            </div>
+            <h1 class="title-font text-5xl md:text-6xl font-bold leading-tight mb-6">
+                Введение в историю
+            </h1>
+            <p class="text-xl text-white/90">Наука о прошлом человечества</p>
+        </div>
+    </section>
+
+    <div class="max-w-4xl mx-auto px-6 py-12">
+        <!-- Прогресс -->
+        <div class="mb-12">
+            <div class="flex justify-between text-sm font-medium mb-3">
+                <span>Прогресс урока</span>
+                <span id="progressText">0%</span>
+            </div>
+            <div class="h-3 bg-gray-200 rounded-full overflow-hidden">
+                <div id="progressBar" class="h-3 bg-gradient-to-r from-amber-600 to-orange-500 rounded-full w-0 transition-all"></div>
+            </div>
+        </div>
+
+        <div id="lessonContent" class="bg-white rounded-3xl shadow-xl p-10 md:p-16">
+
+            <!-- Шаг 1 -->
+            <div id="step1" class="step active">
+                <h2 class="text-3xl font-semibold mb-6">Что такое история?</h2>
+                <p class="content-text text-gray-700">
+                    История — это наука о прошлом человечества. Слово «история» происходит от древнегреческого «historia», 
+                    что означает «рассказ», «повествование» или «исследование».
+                </p>
+                <button onclick="nextStep()" class="mt-12 px-10 py-4 bg-amber-700 text-white rounded-3xl font-semibold text-lg">
+                    Продолжить →
+                </button>
+            </div>
+
+            <!-- Шаг 2 -->
+            <div id="step2" class="step">
+                <h2 class="text-3xl font-semibold mb-6">Зачем изучать историю?</h2>
+                <div class="grid md:grid-cols-2 gap-6 mt-8">
+                    <div class="bg-amber-50 p-6 rounded-2xl">
+                        <p class="font-semibold">Чтобы понимать настоящее</p>
+                        <p class="text-gray-600 mt-2">Многие события сегодняшнего дня связаны с прошлым</p>
+                    </div>
+                    <div class="bg-amber-50 p-6 rounded-2xl">
+                        <p class="font-semibold">Чтобы не повторять ошибки</p>
+                        <p class="text-gray-600 mt-2">Знание прошлого помогает принимать правильные решения</p>
+                    </div>
+                </div>
+                <div class="flex gap-4 mt-12">
+                    <button onclick="prevStep()" class="px-8 py-4 border rounded-3xl">← Назад</button>
+                    <button onclick="nextStep()" class="px-8 py-4 bg-amber-700 text-white rounded-3xl">Далее →</button>
+                </div>
+            </div>
+
+            <!-- Шаг 3 -->
+            <div id="step3" class="step">
+                <h2 class="text-3xl font-semibold mb-6">Как делится история?</h2>
+                <div class="space-y-8 mt-8">
+                    <div class="flex gap-6">
+                        <div class="w-12 h-12 bg-amber-100 rounded-2xl flex items-center justify-center text-2xl font-bold">1</div>
+                        <div>
+                            <p class="font-semibold">Древний мир</p>
+                            <p class="text-gray-600">От появления первых людей до падения Западной Римской империи</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-6">
+                        <div class="w-12 h-12 bg-amber-100 rounded-2xl flex items-center justify-center text-2xl font-bold">2</div>
+                        <div>
+                            <p class="font-semibold">Средние века</p>
+                            <p class="text-gray-600">Время рыцарей, замков и великих открытий</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-6">
+                        <div class="w-12 h-12 bg-amber-100 rounded-2xl flex items-center justify-center text-2xl font-bold">3</div>
+                        <div>
+                            <p class="font-semibold">Новое и Новейшее время</p>
+                            <p class="text-gray-600">От эпохи Просвещения до наших дней</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex gap-4 mt-12">
+                    <button onclick="prevStep()" class="px-8 py-4 border rounded-3xl">← Назад</button>
+                    <button onclick="nextStep()" class="px-8 py-4 bg-amber-700 text-white rounded-3xl">Далее →</button>
+                </div>
+            </div>
+
+            <!-- Шаг 4 -->
+            <div id="step4" class="step">
+                <h2 class="text-3xl font-semibold mb-6">Откуда мы узнаём о прошлом?</h2>
+                <ul class="space-y-6 text-lg text-gray-700">
+                    <li class="flex gap-5">📜 Письменные источники (летописи, документы)</li>
+                    <li class="flex gap-5">🏛️ Археологические находки (предметы, руины)</li>
+                    <li class="flex gap-5">🗣️ Устные предания и легенды</li>
+                    <li class="flex gap-5">📸 Фотографии и видеозаписи</li>
+                </ul>
+                <div class="flex gap-4 mt-12">
+                    <button onclick="prevStep()" class="px-8 py-4 border rounded-3xl">← Назад</button>
+                    <button onclick="nextStep()" class="px-8 py-4 bg-amber-700 text-white rounded-3xl">Далее →</button>
+                </div>
+            </div>
+
+            <!-- Шаг 5 -->
+            <div id="step5" class="step">
+                <h2 class="text-3xl font-semibold mb-6">История вокруг нас</h2>
+                <p class="content-text text-gray-700">
+                    История — это не только даты и имена. Это наши предки, традиции, язык, города и даже названия улиц. 
+                    Изучая историю, мы лучше понимаем, кто мы и откуда пришли.
+                </p>
+                <button onclick="nextStep()" class="mt-12 px-10 py-4 bg-amber-700 text-white rounded-3xl font-semibold text-lg">
+                    Продолжить →
+                </button>
+            </div>
+
+            <!-- Шаг 6 -->
+            <div id="step6" class="step">
+                <h2 class="text-3xl font-semibold mb-6">Подведём итог</h2>
+                <p class="content-text text-gray-700">
+                    История помогает нам быть более осознанными гражданами и лучше понимать мир, в котором мы живём.
+                </p>
+                <button onclick="completeLesson()" class="mt-12 px-10 py-4 bg-amber-700 text-white rounded-3xl font-semibold text-lg">
+                    Завершить урок
+                </button>
+            </div>
+
+            <!-- Поздравительный экран -->
+            <div id="congratulations" class="step text-center py-20 hidden">
+                <div class="text-7xl mb-8">🎉</div>
+                <h2 class="text-5xl font-bold text-amber-700 mb-4">Поздравляем!</h2>
+                <p class="text-2xl text-gray-700 mb-10">Вы успешно завершили первый урок по истории!</p>
+                <button onclick="finishLesson()" 
+                        class="px-12 py-6 bg-gradient-to-r from-amber-600 to-orange-600 text-white text-xl font-semibold rounded-3xl">
+                    Вернуться к Истории
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentStep = 1;
+        const totalSteps = 6;
+
+        function showStep(step) {
+            document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+            const el = document.getElementById('step' + step);
+            if (el) el.classList.add('active');
+        }
+
+        function updateProgress() {
+            const percent = Math.round((currentStep / totalSteps) * 100);
+            document.getElementById('progressBar').style.width = percent + '%';
+            document.getElementById('progressText').textContent = percent + '%';
+        }
+
+        function nextStep() {
+            if (currentStep < totalSteps) {
+                currentStep++;
+                updateProgress();
+                showStep(currentStep);
+            }
+        }
+
+        function prevStep() {
+            if (currentStep > 1) {
+                currentStep--;
+                updateProgress();
+                showStep(currentStep);
+            }
+        }
+
+        function completeLesson() {
+            document.getElementById('progressBar').style.width = '100%';
+            document.getElementById('progressText').textContent = '100%';
+
+            document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+            document.getElementById('congratulations').classList.add('active');
+
+            localStorage.setItem('history_lesson_1_completed', 'true');
+        }
+
+        function finishLesson() {
+            window.location.href = 'history.html';
+        }
+
+        window.onload = () => {
+            showStep(1);
+            updateProgress();
+        };
+    </script>
+</body>
+</html>
